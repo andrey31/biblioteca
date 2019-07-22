@@ -5,10 +5,21 @@
  */
 package com.biblioteca.biblioteca.controladores;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author debian-andrey
  */
-public class LoginController {
+public class LoginController implements ActionListener{
+    
+    
+    
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+    }
     
 }

@@ -28,9 +28,26 @@ public class PersonaDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 persona = new Persona();
-                persona.setId(Integer.parseInt(rs.getString(1)));
+                
                 persona.setUsuario(rs.getString(2));
                 persona.setContrase(rs.getString(3));
+                persona.setId(Integer.parseInt(rs.getString(4)));
+                persona.setTipoUsu(Integer.parseInt(rs.getString(5)));
+                
+                ps = accesoDB.prepareStatement("SELECT * FROM Personas WHERE id=?");
+                
+                ps.setString(1, String.valueOf(persona.getId()));
+                rs = ps.executeQuery();
+                if (rs.next()){
+                    persona.setNombre(rs.getString(2));
+                    persona.setApellido1(rs.getString(3));
+                    persona.setApellido2(rs.getString(4));
+                    persona.setFechaNac(rs.getString(5));
+                    persona.setTelefono(rs.getString(6));
+                    persona.setDireccion(rs.getString(7));
+                    return persona;
+                }
+                
                 return persona;
             }
         } catch (Exception e) {
