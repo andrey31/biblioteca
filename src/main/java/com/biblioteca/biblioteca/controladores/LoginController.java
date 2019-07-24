@@ -21,7 +21,6 @@ public class LoginController implements ActionListener {
     JFLogin loginView = new JFLogin();
     Persona persona = new Persona();
     PersonaDAO personaDAO = new PersonaDAO();
-    
 
     public LoginController(JFLogin loginView, PersonaDAO personaDAO) {
         this.loginView = loginView;
@@ -49,6 +48,12 @@ public class LoginController implements ActionListener {
             if (persona != null) {
                 JOptionPane.showMessageDialog(loginView, "          Datos correctos."
                         + "\n\nNombre: " + persona.getNombre() + " " + persona.getApellido1() + " " + persona.getApellido2());
+                JFRegister registerView = new JFRegister();
+                RegisterController RController = new RegisterController(registerView,personaDAO);
+                personaDAO.listar(registerView);
+                registerView.setVisible(true);
+                registerView.setLocationRelativeTo(null);
+                loginView.dispose();
             }
         } else if (e.getSource() == loginView.btnMnimizar) {
             loginView.setExtendedState(1);
