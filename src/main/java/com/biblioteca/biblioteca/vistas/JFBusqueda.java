@@ -5,6 +5,10 @@ package com.biblioteca.biblioteca.vistas;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import com.biblioteca.biblioteca.modelos.AutorDAO;
+import com.biblioteca.biblioteca.modelos.Conexion;
+import com.biblioteca.biblioteca.modelos.EditorialDAO;
+import com.biblioteca.biblioteca.modelos.TematicaDAO;
 import com.biblioteca.biblioteca.modelos.entidades.Autor;
 import com.biblioteca.biblioteca.modelos.entidades.Editorial;
 import com.biblioteca.biblioteca.modelos.entidades.Libro;
@@ -16,80 +20,80 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *
  * @author cesar
  */
 public class JFBusqueda extends javax.swing.JFrame {
 
-    /** Creates new form JFBusqueda */
+    /**
+     * Creates new form JFBusqueda
+     */
     public JFBusqueda() {
         initComponents();
     }
-    
+
     public class LibroDAO {
-    
-    private Conexion conexion = new Conexion();
-    private AutorDAO autorDAO = new AutorDAO();
-    private EditorialDAO editorialDAO = new EditorialDAO();
-    private TematicaDAO tematicaDAO = new TematicaDAO();
-    
-    public List<Libro> getAllLibros() throws SQLException{
-        
-        conexion.connect();
-        Connection connection = conexion.getConnection();
-        
-        String query = "SELECT l.id_libro, l.titulo, l.ISBN, l.fecha, l.precio, "
-                + "a.nombre as nombre_autor, a.apellido1, a.apellido2, "
-                + "e.nombre as nombre_editorial, "
-                + "t.nombre as nombre_tematica "
-                + "FROM Libros as l INNER JOIN Autores as a ON a.id_autor = l.fk_autor "
-                + "INNER JOIN Editoriales as e ON e.id_editorial = l.fk_editorial "
-                + "INNER JOIN Tematicas as t ON t.id_tematica = l.fk_tematica ORDER BY l.id_libro";
-        
-        ResultSet rs = connection.prepareStatement(query).executeQuery();
-        
-        List<Libro> libros = new ArrayList<>();
-        
-        while(rs.next()){
-        
-            Autor autor = new Autor(0, rs.getString("nombre_autor"), rs.getString("apellido1"), rs.getString("apellido2"));
-            Editorial editorial = new Editorial(0, rs.getString("nombre_editorial"));
-            Tematica tematica = new Tematica(0, rs.getString("nombre_tematica"));
-            
-            Libro libro = new Libro(
-                    rs.getInt("id_libro"),
-                    rs.getString("titulo"),
-                    rs.getString("ISBN"),
-                    rs.getDate("fecha"),
-                    rs.getDouble("precio"),
-                    autor,
-                    editorial,
-                    tematica
-            );
-            libros.add(libro); 
+
+        private Conexion conexion = new Conexion();
+        private AutorDAO autorDAO = new AutorDAO();
+        private EditorialDAO editorialDAO = new EditorialDAO();
+        private TematicaDAO tematicaDAO = new TematicaDAO();
+
+        public List<Libro> getAllLibros() throws SQLException {
+
+            conexion.connect();
+            Connection connection = conexion.getConnection();
+
+            String query = "SELECT l.id_libro, l.titulo, l.ISBN, l.fecha, l.precio, "
+                    + "a.nombre as nombre_autor, a.apellido1, a.apellido2, "
+                    + "e.nombre as nombre_editorial, "
+                    + "t.nombre as nombre_tematica "
+                    + "FROM Libros as l INNER JOIN Autores as a ON a.id_autor = l.fk_autor "
+                    + "INNER JOIN Editoriales as e ON e.id_editorial = l.fk_editorial "
+                    + "INNER JOIN Tematicas as t ON t.id_tematica = l.fk_tematica ORDER BY l.id_libro";
+
+            ResultSet rs = connection.prepareStatement(query).executeQuery();
+
+            List<Libro> libros = new ArrayList<>();
+
+            while (rs.next()) {
+
+                Autor autor = new Autor(0, rs.getString("nombre_autor"), rs.getString("apellido1"), rs.getString("apellido2"));
+                Editorial editorial = new Editorial(0, rs.getString("nombre_editorial"));
+                Tematica tematica = new Tematica(0, rs.getString("nombre_tematica"));
+
+                Libro libro = new Libro(
+                        rs.getInt("id_libro"),
+                        rs.getString("titulo"),
+                        rs.getString("ISBN"),
+                        rs.getDate("fecha"),
+                        rs.getDouble("precio"),
+                        autor,
+                        editorial,
+                        tematica
+                );
+                libros.add(libro);
+            }
+            conexion.closeConnection();
+            return libros;
         }
-        conexion.closeConnection();
-        return libros;
     }
-}
-    
-    public void buscar (String texto){
+
+    public void buscar(String texto) {
         try {
-            String [] libros("Id","Titulo","ISBN","Fecha","Precio","Autor","Editorial","Tematica");
-            String SQL = "SELECT * FROM LIBROS WHERE id_libro like"+'"'+texto+'"'+"_%";
+            //String [] libros("Id","Titulo","ISBN","Fecha","Precio","Autor","Editorial","Tematica");
+            String SQL = "SELECT * FROM LIBROS WHERE id_libro like" + '"' + texto + '"' + "_%";
             System.out.println(SQL);
-            
-            
+
         } catch (Exception e) {
         }
-    } 
-            
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
