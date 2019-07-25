@@ -108,42 +108,32 @@ public class PersonaDAO {
                     PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM Usuarios WHERE usuario=?");
                     ps.setString(1, usuario);
                     ResultSet rs = ps.executeQuery();
-
                     if (rs.next()) {
                         persona = new Persona();
-                        persona.setUsuario(rs.getString(2));
-
-                        if (usuario.equals(persona.getUsuario())) {
-                            ps = accesoDB.prepareStatement("SELECT * FROM Usuarios WHERE contrasena=?");
-                            ps.setString(1, contraseña);
+                        ps = accesoDB.prepareStatement("SELECT * FROM Usuarios WHERE contrasena=?");
+                        ps.setString(1, contraseña);
+                        rs = ps.executeQuery();
+                        if (rs.next()) {
+                            ps = accesoDB.prepareStatement("SELECT Personas.*, Usuarios.usuario,Usuarios.contrasena,Usuarios.fk_tipo FROM Personas, Usuarios WHERE Usuarios.usuario = ? AND Usuarios.contrasena = ? AND Personas.id = Usuarios.fk_persona");
+                            ps.setString(1, usuario);
+                            ps.setString(2, contraseña);
                             rs = ps.executeQuery();
-
                             if (rs.next()) {
-                                persona.setContrase(rs.getString(3));
-
-                                if (contraseña.equals(persona.getContrase())) {
-                                    persona.setId(Integer.parseInt(rs.getString(4)));
-                                    persona.setTipoUsu(Integer.parseInt(rs.getString(5)));
-
-                                    ps = accesoDB.prepareStatement("SELECT * FROM Personas WHERE id=?");
-
-                                    ps.setString(1, String.valueOf(persona.getId()));
-                                    rs = ps.executeQuery();
-
-                                    if (rs.next()) {
-                                        persona.setNombre(rs.getString(2));
-                                        persona.setApellido1(rs.getString(3));
-                                        persona.setApellido2(rs.getString(4));
-                                        persona.setFechaNac(rs.getString(5));
-                                        persona.setTelefono(rs.getString(6));
-                                        persona.setDireccion(rs.getString(7));
-                                        con.closeConnection();
-                                        return persona;
-                                    }
-                                }
-                            } else {
-                                errorContra = "Contraseña incorrecta";
+                                persona.setId(Integer.parseInt(rs.getString(1)));
+                                persona.setNombre(rs.getString(2));
+                                persona.setApellido1(rs.getString(3));
+                                persona.setApellido2(rs.getString(4));
+                                persona.setFechaNac(rs.getString(5));
+                                persona.setTelefono(rs.getString(6));
+                                persona.setDireccion(rs.getString(7));
+                                persona.setUsuario(rs.getString(8));
+                                persona.setContrase(rs.getString(9));
+                                persona.setId(Integer.parseInt(rs.getString(10)));
+                                con.closeConnection();
+                                return persona;
                             }
+                        } else {
+                            errorContra = "Contraseña incorrecta";
                         }
                     } else {
                         errorUsu = "Usuario incorrecto";
