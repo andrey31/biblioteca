@@ -53,6 +53,7 @@ public class PersonaDAO {
         } catch (Exception e) {
             System.out.println("ERROR---- " + e);
         }
+        con.closeConnection();
         JOptionPane.showMessageDialog(registerView, "Registrado");
     }
 
@@ -86,6 +87,7 @@ public class PersonaDAO {
             }
         } catch (Exception e) {
         }
+        con.closeConnection();
         this.registerView.tblPersona.setModel(model);
     }
 
@@ -135,6 +137,7 @@ public class PersonaDAO {
                                         persona.setFechaNac(rs.getString(5));
                                         persona.setTelefono(rs.getString(6));
                                         persona.setDireccion(rs.getString(7));
+                                        con.closeConnection();
                                         return persona;
                                     }
                                 }
@@ -163,12 +166,15 @@ public class PersonaDAO {
         if (!errorUsu.isEmpty()) {
             this.loginView.lblErrorUsu.setText(errorUsu);
             Persona p = null;
+            con.closeConnection();
             return p;
         } else if (!errorContra.isEmpty()) {
             this.loginView.lblErrorContra.setText(errorContra);
             Persona p = null;
+            con.closeConnection();
             return p;
         }
+        con.closeConnection();
         return persona;
     }
 }
