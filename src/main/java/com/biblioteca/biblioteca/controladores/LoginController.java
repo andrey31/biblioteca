@@ -5,6 +5,7 @@
  */
 package com.biblioteca.biblioteca.controladores;
 
+import com.biblioteca.biblioteca.modelos.entidades.Persona;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.biblioteca.biblioteca.vistas.*;

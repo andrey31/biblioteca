@@ -1,5 +1,6 @@
 package com.biblioteca.biblioteca.modelos;
 
+import com.biblioteca.biblioteca.modelos.entidades.Persona;
 import com.biblioteca.biblioteca.vistas.*;
 import java.sql.*;
 import java.util.ArrayList;

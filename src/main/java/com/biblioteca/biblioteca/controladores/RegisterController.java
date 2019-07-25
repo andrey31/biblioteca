@@ -1,6 +1,6 @@
 package com.biblioteca.biblioteca.controladores;
 
-import com.biblioteca.biblioteca.modelos.Persona;
+import com.biblioteca.biblioteca.modelos.entidades.Persona;
 import com.biblioteca.biblioteca.modelos.PersonaDAO;
 import com.biblioteca.biblioteca.vistas.JFRegister;
 import java.awt.event.ActionEvent;

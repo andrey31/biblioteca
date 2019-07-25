@@ -1,5 +1,5 @@
 
-package com.biblioteca.biblioteca.modelos;
+package com.biblioteca.biblioteca.modelos.entidades;
 
 /**
  *
