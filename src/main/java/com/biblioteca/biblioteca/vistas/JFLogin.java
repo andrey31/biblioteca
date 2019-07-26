@@ -37,12 +37,12 @@ public class JFLogin extends javax.swing.JFrame {
         btnMnimizar = new javax.swing.JButton();
         btnMaximizar = new javax.swing.JButton();
         Subtittle_3 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JPasswordField();
-        lblErrorContra = new javax.swing.JLabel();
-        lblErrorUsu = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        txtUsuario = new javax.swing.JTextField();
+        lblErrorUsu = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
+        lblErrorContra = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -80,22 +80,24 @@ public class JFLogin extends javax.swing.JFrame {
         Subtittle_3.setForeground(new java.awt.Color(130, 204, 171));
         Subtittle_3.setText("Inicio de Sesión");
         Panel_Login.add(Subtittle_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+        Panel_Login.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 280, 20));
+        Panel_Login.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 280, 20));
 
-        txtContraseña.setBorder(null);
-        Panel_Login.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 280, 40));
-
-        lblErrorContra.setForeground(new java.awt.Color(255, 102, 102));
-        lblErrorContra.setText("Error");
-        Panel_Login.add(lblErrorContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
+        txtUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        txtUsuario.setBorder(null);
+        Panel_Login.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 270, 50));
 
         lblErrorUsu.setForeground(new java.awt.Color(255, 102, 102));
         lblErrorUsu.setText("Error");
         Panel_Login.add(lblErrorUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
 
-        txtUsuario.setBorder(null);
-        Panel_Login.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 280, 40));
-        Panel_Login.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 280, 20));
-        Panel_Login.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 280, 20));
+        txtContraseña.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtContraseña.setBorder(null);
+        Panel_Login.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 270, 50));
+
+        lblErrorContra.setForeground(new java.awt.Color(255, 102, 102));
+        lblErrorContra.setText("Error");
+        Panel_Login.add(lblErrorContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_User_Male_35px.png"))); // NOI18N
         Panel_Login.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 40));
