@@ -32,6 +32,7 @@ public class JFRegister extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         cmbTipo = new javax.swing.JComboBox<>();
+        dpFecha = new com.github.lgooddatepicker.components.DatePicker();
         txtContraseña = new javax.swing.JTextField();
         txtUsuario = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
@@ -107,8 +108,9 @@ public class JFRegister extends javax.swing.JFrame {
         btnGuardar.setOpaque(false);
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 560, -1, -1));
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "bibliotecario", "estudiante" }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Bibliotecario", "Estudiante" }));
         jPanel1.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 200, 30));
+        jPanel1.add(dpFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 200, 30));
 
         txtContraseña.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         txtContraseña.setBorder(null);
@@ -170,6 +172,7 @@ public class JFRegister extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblPersona.setToolTipText("");
         jScrollPane1.setViewportView(tblPersona);
         if (tblPersona.getColumnModel().getColumnCount() > 0) {
             tblPersona.getColumnModel().getColumn(0).setMaxWidth(30);
@@ -328,6 +331,7 @@ public class JFRegister extends javax.swing.JFrame {
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnModificar;
     public javax.swing.JComboBox<String> cmbTipo;
+    private com.github.lgooddatepicker.components.DatePicker dpFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

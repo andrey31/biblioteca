@@ -4,6 +4,7 @@ import com.biblioteca.biblioteca.modelos.entidades.Persona;
 import com.biblioteca.biblioteca.vistas.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,44 +52,42 @@ public class PersonaDAO {
             }
 
         } catch (Exception e) {
-            System.out.println("ERROR---- " + e);
+            System.out.println("ERROR----" + e);
         }
         con.closeConnection();
         JOptionPane.showMessageDialog(registerView, "Registrado");
     }
 
-    public void listar(JFRegister registerView) {
-        this.registerView = registerView;
+   public List<Persona> getAllPersonas() throws SQLException{
+        
         con.connect();
-        Connection accesoDB = con.getConnection();
-        DefaultTableModel model = new DefaultTableModel();
-
-        model.addColumn("Id");
-        model.addColumn("Nombre");
-        model.addColumn("Apellido 1");
-        model.addColumn("Apellido 2");
-        model.addColumn("Fecha_Nac");
-        model.addColumn("Telefono");
-        model.addColumn("Direccion");
-        model.addColumn("Usuario");
-        model.addColumn("Contraseña");
-        model.addColumn("Tipo");
-
-        try {
-            PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM Usuarios");
-            ResultSet rs = ps.executeQuery();
-            ResultSetMetaData rsMD = rs.getMetaData();
-            while (rs.next()) {
-                Object[] filas = new Object[rsMD.getColumnCount()];
-                for (int x = 1; x <= rsMD.getColumnCount(); x++) {
-                    filas[x] = rs.getObject(x);
-                }
-                model.addRow(filas);
-            }
-        } catch (Exception e) {
+        Connection connection = con.getConnection();
+        
+        String query = "SELECT Personas.*, Usuarios.usuario,Usuarios.contrasena, Tipo_Usuario.id_tipo FROM Personas, Usuarios,"
+                + " Tipo_Usuario WHERE Usuarios.fk_persona = Personas.id AND Usuarios.fk_tipo = Tipo_Usuario.id_tipo";
+        
+        ResultSet rs = connection.prepareStatement(query).executeQuery();
+        
+        List<Persona> personas = new ArrayList<>();
+        
+        while(rs.next()){
+            Persona persona = new Persona(
+                    rs.getInt("id"),
+                    rs.getString("nombre"),
+                    rs.getString("apellido1"),
+                    rs.getString("apellido2"),
+                    rs.getString("fecha_nacimiento"),
+                    rs.getString("telefono"),
+                    rs.getString("direccion"),
+                    rs.getString("usuario"),
+                    rs.getString("contrasena"),
+                    rs.getInt("id_tipo")
+            );
+            
+            personas.add(persona); 
         }
         con.closeConnection();
-        this.registerView.tblPersona.setModel(model);
+        return personas;
     }
 
     public Persona verificaUsuario(String usuario, String contraseña, JFLogin loginView) {
