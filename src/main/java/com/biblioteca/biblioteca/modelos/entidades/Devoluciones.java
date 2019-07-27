@@ -10,13 +10,29 @@ public class Devoluciones {
 
     private int id, fk_prestamo;
     private double multa;
-    private Date fechaDevolucion;
+    private String fechaDevolucion, fechaPropuesta;
 
-    public Devoluciones(int id, Date fechaDevolucion, double multa, int fk_prestamo) {
+    public Devoluciones(int id, String fechaPropuesta, String fechaDevolucion, double multa, int fk_prestamo) {
         this.id = id;
         this.fk_prestamo = fk_prestamo;
         this.multa = multa;
         this.fechaDevolucion = fechaDevolucion;
+        this.fechaPropuesta = fechaPropuesta;
+    }
+
+    public Devoluciones(int id, String fechaDevolucion, double multa, int fk_prestamo) {
+        this.id = id;
+        this.fk_prestamo = fk_prestamo;
+        this.multa = multa;
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
+    public String getFechaPropuesta() {
+        return fechaPropuesta;
+    }
+
+    public void setFechaPropuesta(String fechaPropuesta) {
+        this.fechaPropuesta = fechaPropuesta;
     }
 
     public Devoluciones() {
@@ -46,11 +62,11 @@ public class Devoluciones {
         this.multa = multa;
     }
 
-    public Date getFechaDevolucion() {
+    public String getFechaDevolucion() {
         return fechaDevolucion;
     }
 
-    public void setFechaDevolucion(Date fechaDevolucion) {
+    public void setFechaDevolucion(String fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
     }
 
