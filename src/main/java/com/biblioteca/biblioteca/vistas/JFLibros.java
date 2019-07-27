@@ -75,39 +75,40 @@ public class JFLibros extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         txtAutorA2 = new javax.swing.JTextField();
         txtAutorA1 = new javax.swing.JTextField();
-        lblApellido2 = new javax.swing.JLabel();
-        lblNombre1 = new javax.swing.JLabel();
-        lblApellido1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         inputFecha = new com.github.lgooddatepicker.components.DatePicker();
         jPanel2 = new javax.swing.JPanel();
         app_Tittle = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblCmbTematica = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lblTxtTematica = new javax.swing.JLabel();
+        lblCmbEditorial = new javax.swing.JLabel();
+        lblAutorNuevo = new javax.swing.JLabel();
+        lblTxtEditorial = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
+        separadorEditorial = new javax.swing.JSeparator();
+        separadorTematica = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
         jSeparator12 = new javax.swing.JSeparator();
         jSeparator13 = new javax.swing.JSeparator();
+        panelAutor = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        lblNombre1 = new javax.swing.JLabel();
+        lblApellido1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        lblApellido2 = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,7 +159,6 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 50, 50));
 
-        txtTitulo.setEditable(false);
         txtTitulo.setBackground(new java.awt.Color(255, 255, 255));
         txtTitulo.setBorder(null);
         txtTitulo.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
@@ -168,13 +168,11 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 50, 50));
 
-        txtISBN.setEditable(false);
         txtISBN.setBackground(new java.awt.Color(255, 255, 255));
         txtISBN.setBorder(null);
         txtISBN.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 210, 30));
 
-        txtPrecio.setEditable(false);
         txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setBorder(null);
         txtPrecio.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
@@ -202,13 +200,11 @@ public class JFLibros extends javax.swing.JFrame {
 
         cmbAutores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbAutores.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
-        jPanel1.add(cmbAutores, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 150, -1));
+        jPanel1.add(cmbAutores, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 150, -1));
 
-        txtAutorNombre.setEditable(false);
-        txtAutorNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtAutorNombre.setBorder(null);
         txtAutorNombre.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
-        jPanel1.add(txtAutorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 150, 27));
+        jPanel1.add(txtAutorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 150, 27));
 
         rNuevoEditorial.setSelected(true);
         rNuevoEditorial.setText("Nuevo");
@@ -232,13 +228,11 @@ public class JFLibros extends javax.swing.JFrame {
         rExistenteTematica.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(rExistenteTematica, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 290, -1, -1));
 
-        txtTematica.setEditable(false);
         txtTematica.setBackground(new java.awt.Color(255, 255, 255));
         txtTematica.setBorder(null);
         txtTematica.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(txtTematica, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 330, 160, 27));
 
-        txtEditoial.setEditable(false);
         txtEditoial.setBackground(new java.awt.Color(255, 255, 255));
         txtEditoial.setBorder(null);
         txtEditoial.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
@@ -249,32 +243,13 @@ public class JFLibros extends javax.swing.JFrame {
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, 290, 50));
 
-        txtAutorA2.setEditable(false);
-        txtAutorA2.setBackground(new java.awt.Color(255, 255, 255));
         txtAutorA2.setBorder(null);
         txtAutorA2.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
-        jPanel1.add(txtAutorA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 150, 27));
+        jPanel1.add(txtAutorA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 410, 150, 27));
 
-        txtAutorA1.setEditable(false);
-        txtAutorA1.setBackground(new java.awt.Color(255, 255, 255));
         txtAutorA1.setBorder(null);
         txtAutorA1.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
-        jPanel1.add(txtAutorA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 150, 27));
-
-        lblApellido2.setText("Segundo apellido:");
-        lblApellido2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        lblApellido2.setToolTipText("");
-        jPanel1.add(lblApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
-
-        lblNombre1.setText("Nombre:");
-        lblNombre1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        lblNombre1.setToolTipText("");
-        jPanel1.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
-
-        lblApellido1.setText("Primer apellido:");
-        lblApellido1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        lblApellido1.setToolTipText("");
-        jPanel1.add(lblApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, 30));
+        jPanel1.add(txtAutorA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 370, 150, 27));
 
         jLabel6.setText("Precio:");
         jLabel6.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
@@ -297,8 +272,8 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Pay_Date_35px.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 90, 40, 50));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Bulleted_List_35px.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 360, 40, 40));
+        lblCmbTematica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Bulleted_List_35px.png"))); // NOI18N
+        jPanel1.add(lblCmbTematica, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 360, 40, 40));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Pin_Code_35px.png"))); // NOI18N
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 40, 50));
@@ -306,8 +281,8 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Paper_Money_35px.png"))); // NOI18N
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 40, 50));
 
-        jSeparator3.setForeground(new java.awt.Color(130, 204, 171));
         jSeparator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(130, 204, 171), 3));
+        jSeparator3.setForeground(new java.awt.Color(130, 204, 171));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 350, 230));
 
         jSeparator4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(130, 204, 171), 3));
@@ -316,45 +291,104 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Title_35px_1.png"))); // NOI18N
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 40, 50));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 320, 40, 50));
+        lblTxtTematica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
+        jPanel1.add(lblTxtTematica, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 320, 40, 50));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 40, 50));
+        lblCmbEditorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Bulleted_List_35px.png"))); // NOI18N
+        jPanel1.add(lblCmbEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 40, 40));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 40, 50));
+        lblAutorNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Bulleted_List_35px.png"))); // NOI18N
+        jPanel1.add(lblAutorNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 40, 50));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Bulleted_List_35px.png"))); // NOI18N
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 40, 40));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Bulleted_List_35px.png"))); // NOI18N
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 40, 50));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 40, 50));
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 40, 50));
+        lblTxtEditorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
+        jPanel1.add(lblTxtEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 40, 50));
 
         jSeparator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(130, 204, 171), 3));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 280, 300, 140));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 160, 10));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 150, 10));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 150, 10));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 360, 160, 10));
+        jPanel1.add(separadorEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 160, 10));
+        jPanel1.add(separadorTematica, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 360, 160, 10));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 160, 10));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, 210, 10));
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 360, 160, 10));
-        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 150, 10));
         jPanel1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 210, 10));
         jPanel1.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 210, 10));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
+
+        lblNombre1.setText("Nombre:");
+        lblNombre1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        lblNombre1.setToolTipText("");
+
+        lblApellido1.setText("Primer apellido:");
+        lblApellido1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        lblApellido1.setToolTipText("");
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
+
+        lblApellido2.setText("Segundo apellido:");
+        lblApellido2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        lblApellido2.setToolTipText("");
+
+        javax.swing.GroupLayout panelAutorLayout = new javax.swing.GroupLayout(panelAutor);
+        panelAutor.setLayout(panelAutorLayout);
+        panelAutorLayout.setHorizontalGroup(
+            panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAutorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAutorLayout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNombre1))
+                    .addGroup(panelAutorLayout.createSequentialGroup()
+                        .addGroup(panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAutorLayout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblApellido1)
+                            .addGroup(panelAutorLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblApellido2)
+                            .addGroup(panelAutorLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        panelAutorLayout.setVerticalGroup(
+            panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAutorLayout.createSequentialGroup()
+                .addGroup(panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelAutorLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblNombre1)))
+                .addGroup(panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelAutorLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAutorLayout.createSequentialGroup()
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblApellido2)
+                        .addGap(8, 8, 8)
+                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(panelAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 310, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1338, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1406, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,13 +446,9 @@ public class JFLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
@@ -426,11 +456,9 @@ public class JFLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -440,18 +468,25 @@ public class JFLibros extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     public javax.swing.JLabel lblApellido1;
     public javax.swing.JLabel lblApellido2;
+    public javax.swing.JLabel lblAutorNuevo;
+    public javax.swing.JLabel lblCmbEditorial;
+    public javax.swing.JLabel lblCmbTematica;
     public javax.swing.JLabel lblNombre1;
+    public javax.swing.JLabel lblTxtEditorial;
+    public javax.swing.JLabel lblTxtTematica;
+    public javax.swing.JPanel panelAutor;
     public javax.swing.JRadioButton rExistenteAutor;
     public javax.swing.JRadioButton rExistenteEditorial;
     public javax.swing.JRadioButton rExistenteTematica;
     public javax.swing.JRadioButton rNuevoAutor;
     public javax.swing.JRadioButton rNuevoEditorial;
     public javax.swing.JRadioButton rNuevoTematica;
+    public javax.swing.JSeparator separadorEditorial;
+    public javax.swing.JSeparator separadorTematica;
     public javax.swing.JTable tableLibros;
     public javax.swing.JTextField txtAutorA1;
     public javax.swing.JTextField txtAutorA2;
