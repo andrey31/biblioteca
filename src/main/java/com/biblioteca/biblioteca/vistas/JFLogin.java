@@ -85,19 +85,19 @@ public class JFLogin extends javax.swing.JFrame {
 
         txtUsuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         txtUsuario.setBorder(null);
-        Panel_Login.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 270, 50));
+        Panel_Login.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 270, 50));
 
         lblErrorUsu.setForeground(new java.awt.Color(255, 102, 102));
         lblErrorUsu.setText("Error");
-        Panel_Login.add(lblErrorUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+        Panel_Login.add(lblErrorUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
         txtContraseña.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtContraseña.setBorder(null);
-        Panel_Login.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 270, 50));
+        Panel_Login.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 270, 50));
 
         lblErrorContra.setForeground(new java.awt.Color(255, 102, 102));
         lblErrorContra.setText("Error");
-        Panel_Login.add(lblErrorContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
+        Panel_Login.add(lblErrorContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_User_Male_35px.png"))); // NOI18N
         Panel_Login.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 40));
@@ -111,11 +111,6 @@ public class JFLogin extends javax.swing.JFrame {
         btnIniciar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
         btnIniciar.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciar.setText("Iniciar Sesión");
-        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarActionPerformed(evt);
-            }
-        });
         Panel_Login.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 260, 50));
 
         getContentPane().add(Panel_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 600));
@@ -188,10 +183,6 @@ public class JFLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-     //  access();
-    }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
      * @param args the command line arguments

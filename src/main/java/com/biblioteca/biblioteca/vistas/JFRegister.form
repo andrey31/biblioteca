@@ -114,9 +114,9 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="admin"/>
-                <StringItem index="1" value="bibliotecario"/>
-                <StringItem index="2" value="estudiante"/>
+                <StringItem index="0" value="Admin"/>
+                <StringItem index="1" value="Bibliotecario"/>
+                <StringItem index="2" value="Estudiante"/>
               </StringArray>
             </Property>
           </Properties>
@@ -127,6 +127,13 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="180" y="500" width="200" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="com.github.lgooddatepicker.components.DatePicker" name="dpFecha">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="180" y="300" width="200" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -357,6 +364,7 @@
                     <Column editable="false" title="Tipo" type="java.lang.Object"/>
                   </Table>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="30" minWidth="-1" prefWidth="-1" resizable="true">

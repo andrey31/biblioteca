@@ -10,8 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.biblioteca.biblioteca.vistas.*;
 import com.biblioteca.biblioteca.modelos.*;
-import static java.awt.Frame.MAXIMIZED_BOTH;
-import javax.swing.JOptionPane;
+import java.sql.SQLException;
 
 /**
  *
@@ -45,23 +44,17 @@ public class LoginController implements ActionListener {
             String usuario = String.valueOf(loginView.txtUsuario.getText());
             String contra = String.valueOf(loginView.txtContraseña.getText());
             persona = personaDAO.verificaUsuario(usuario, contra, loginView);
-
             if (persona != null) {
-                JOptionPane.showMessageDialog(loginView, "          Datos correctos."
-                        + "\n\nNombre: " + persona.getNombre() + " " + persona.getApellido1() + " " + persona.getApellido2());
                 JFRegister registerView = new JFRegister();
-                RegisterController RController = new RegisterController(registerView,personaDAO);
-                personaDAO.listar(registerView);
+                try {
+                    RegisterController RController = new RegisterController(registerView,personaDAO);
+                } catch (SQLException ex) {
+                    System.out.println("Error---- "+ex);
+                }
                 registerView.setVisible(true);
                 registerView.setLocationRelativeTo(null);
                 loginView.dispose();
             }
-        } else if (e.getSource() == loginView.btnMnimizar) {
-            loginView.setExtendedState(1);
-        } else if (e.getSource() == loginView.btnMaximizar) {
-            loginView.setExtendedState(MAXIMIZED_BOTH);
-        } else if (e.getSource() == loginView.btnSalir) {
-            loginView.dispose();
         }
 
     }
