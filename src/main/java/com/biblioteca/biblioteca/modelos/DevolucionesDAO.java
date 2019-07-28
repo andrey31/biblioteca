@@ -104,7 +104,8 @@ public class DevolucionesDAO {
         ps.setString(1, dev.getFechaDevolucion());
         ps.setDouble(2, dev.getMulta());
         ps.setInt(3, dev.getId());
-        ResultSet rs = ps.executeQuery();
+        ps.executeUpdate();
+        conexion.closeConnection();
     }
 
     public void deleteDevolucion(Devoluciones dev) throws SQLException {
@@ -114,6 +115,7 @@ public class DevolucionesDAO {
         String query = "DELETE FROM `Devoluciones` WHERE `id` =?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, dev.getId());
-        ResultSet rs = ps.executeQuery();
+        ps.executeUpdate();
+        conexion.closeConnection();
     }
 }
