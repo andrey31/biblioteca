@@ -79,4 +79,41 @@ public class DevolucionesDAO {
         return listDevoluciones;
     }
 
+    public boolean devoluciónExiste(int idPrestamo) throws SQLException {
+        boolean result = false;
+        conexion.connect();
+        Connection connection = conexion.getConnection();
+        String query = "SELECT `fk_prestamo` "
+                + "FROM Devoluciones d, Prestamos p WHERE fk_prestamo = p.id_prestamo and fk_prestamo= ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, idPrestamo);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            result = true;
+        }
+        return result;
+
+    }
+
+    public void updateDevolucion(Devoluciones dev) throws SQLException {
+        conexion.connect();
+        Connection connection = conexion.getConnection();
+
+        String query = "UPDATE `Devoluciones` SET `fecha`=?,`multa`=? WHERE `id` =?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, dev.getFechaDevolucion());
+        ps.setDouble(2, dev.getMulta());
+        ps.setInt(3, dev.getId());
+        ResultSet rs = ps.executeQuery();
+    }
+
+    public void deleteDevolucion(Devoluciones dev) throws SQLException {
+        conexion.connect();
+        Connection connection = conexion.getConnection();
+
+        String query = "DELETE FROM `Devoluciones` WHERE `id` =?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, dev.getId());
+        ResultSet rs = ps.executeQuery();
+    }
 }
