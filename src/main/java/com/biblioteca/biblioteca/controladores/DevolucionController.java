@@ -35,25 +35,20 @@ public class DevolucionController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    devolucionesDAO = new DevolucionesDAO();
-                    if (!devolucionesDAO.devoluciónExiste(Integer.parseInt(jfDev.lbIdPrestamo.getText()))) {
 
-                        ingresarDevolucion();
-                        cargarDevolucion();
-                        limpiarCampos();
-                    } else {
-                        limpiarCampos();
-                        JOptionPane.showMessageDialog(null, "Devolución ya ingresada");
-                    }
+                    ingresarDevolucion();
 
                 } catch (Exception ex) {
 
                 }
             }
         });
-        this.jfDev.btnEditar.addActionListener(new ActionListener() {
+
+        this.jfDev.btnEditar.addActionListener(
+                new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e
+            ) {
                 try {
                     if (actualizar == false) {
                         cargarDatosUpdate();
@@ -62,10 +57,14 @@ public class DevolucionController {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
-        });
-        this.jfDev.btnActualizar.addActionListener(new ActionListener() {
+        }
+        );
+
+        this.jfDev.btnActualizar.addActionListener(
+                new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e
+            ) {
                 try {
                     if (actualizar) {
                         updateDevolucion();
@@ -74,10 +73,14 @@ public class DevolucionController {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
-        });
-        this.jfDev.btnEliminar.addActionListener(new ActionListener() {
+        }
+        );
+
+        this.jfDev.btnEliminar.addActionListener(
+                new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e
+            ) {
                 try {
 
                     EliminarDevolucion();
@@ -86,7 +89,8 @@ public class DevolucionController {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
-        });
+        }
+        );
     }
 
     //Carga todos los registros en la tabla
@@ -114,17 +118,30 @@ public class DevolucionController {
     //Nuevo registro de devoluciones
     public void ingresarDevolucion() throws Exception {
         devolucionesDAO = new DevolucionesDAO();
+        if (esVacio() == false) {
+            if (!devolucionesDAO.devoluciónExiste(Integer.parseInt(jfDev.lbIdPrestamo.getText()))) {
 
-        dev = new Devoluciones();
-        dev.setFechaDevolucion(this.jfDev.dtpFechaDev.getDate() + "");
-        dev.setFk_prestamo(Integer.parseInt(this.jfDev.lbIdPrestamo.getText()));
-        dev.setMulta(Double.parseDouble(this.jfDev.txtMulta.getText()));
+                devolucionesDAO = new DevolucionesDAO();
 
-        devolucionesDAO.saveDevolucion(dev);
-        limpiarCampos();
+                dev = new Devoluciones();
+                dev.setFechaDevolucion(this.jfDev.dtpFechaDev.getDate() + "");
+                dev.setFk_prestamo(Integer.parseInt(this.jfDev.lbIdPrestamo.getText()));
+                dev.setMulta(Double.parseDouble(this.jfDev.txtMulta.getText()));
+
+                devolucionesDAO.saveDevolucion(dev);
+                limpiarCampos();
+                cargarDevolucion();
+                limpiarCampos();
+            } else {
+                limpiarCampos();
+                JOptionPane.showMessageDialog(null, "Devolución ya ingresada");
+            }
+        } else {
+            jfDev.lbError.setText("Debe llenar todos los campos");
+        }
     }
-
     //Carga los datos en los campos para hacer el update
+
     public void cargarDatosUpdate() {
 
         if (this.jfDev.tbTabla.getSelectedRow() != -1) {
@@ -146,20 +163,22 @@ public class DevolucionController {
 
     //Actualiza el registro
     public void updateDevolucion() throws SQLException {
-        if (idDev != 0) {
+        if (idDev != 0 || !esVacio()) {
             dev = new Devoluciones();
             dev.setFechaDevolucion(this.jfDev.dtpFechaDev.getDate() + "");
             dev.setId(idDev);
             dev.setMulta(Double.parseDouble(this.jfDev.txtMulta.getText()));
 
             devolucionesDAO.updateDevolucion(dev);
+            idDev = 0;
+            actualizar = false;
+            limpiarCampos();
+            Paneles(true, false);
+            cargarDevolucion();
+        } else {
+            jfDev.lbError.setText("Debe llenar todos los campos");
         }
 
-        idDev = 0;
-        actualizar = false;
-        limpiarCampos();
-        Paneles(true, false);
-        cargarDevolucion();
     }
 
     public void EliminarDevolucion() throws SQLException {
@@ -194,6 +213,15 @@ public class DevolucionController {
         jfDev.pnActualizar.setVisible(actualizar);
         jfDev.tbTabla.enable(editar);
 
+    }
+
+    public boolean esVacio() {
+        boolean result = false;
+
+        if ("".equals(jfDev.dtpFechaDev.getText()) || "".equals(jfDev.txtMulta.getText())) {
+            result = true;
+        }
+        return result;
     }
 
     /*public double calcularMulta() {
