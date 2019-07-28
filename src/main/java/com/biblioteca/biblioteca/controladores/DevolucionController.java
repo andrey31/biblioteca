@@ -75,14 +75,15 @@ public class DevolucionController {
                 }
             }
         });
-        this.jfDev.btnCancelarUpdate.addActionListener(new ActionListener() {
+        this.jfDev.btnEliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (actualizar) {
-                        cancelarUpdate();
-                    }
+
+                    EliminarDevolucion();
+
                 } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
         });
@@ -125,7 +126,7 @@ public class DevolucionController {
 
     //Carga los datos en los campos para hacer el update
     public void cargarDatosUpdate() {
-        JOptionPane.showMessageDialog(null, "Hola");
+
         if (this.jfDev.tbTabla.getSelectedRow() != -1) {
 
             dev = new Devoluciones();
@@ -137,8 +138,7 @@ public class DevolucionController {
             actualizar = true;
             jfDev.lbError.setText("");
             Paneles(false, true);
-        }
-        if (this.jfDev.tbTabla.getSelectedRow() == -1) {
+        } else {
             jfDev.lbError.setText("Elija la fila de la tabla que sea actualizar");
         }
 
@@ -147,7 +147,8 @@ public class DevolucionController {
     //Actualiza el registro
     public void updateDevolucion() throws SQLException {
         if (idDev != 0) {
-            dev.setFechaDevolucion(this.jfDev.dtpFechaDev.getText());
+            dev = new Devoluciones();
+            dev.setFechaDevolucion(this.jfDev.dtpFechaDev.getDate() + "");
             dev.setId(idDev);
             dev.setMulta(Double.parseDouble(this.jfDev.txtMulta.getText()));
 
@@ -158,9 +159,24 @@ public class DevolucionController {
         actualizar = false;
         limpiarCampos();
         Paneles(true, false);
+        cargarDevolucion();
     }
 
+    public void EliminarDevolucion() throws SQLException {
+        if (this.jfDev.tbTabla.getSelectedRow() != -1) {
+            dev = new Devoluciones();
+            int id = (int) this.jfDev.tbTabla.getModel().getValueAt(this.jfDev.tbTabla.getSelectedRow(), 0);
+            dev.setId(id);
+            devolucionesDAO.deleteDevolucion(dev);
+            cargarDevolucion();
+            limpiarCampos();
+        } else {
+            jfDev.lbError.setText("Elija la fila de la tabla que sea eliminar");
+        }
+
+    }
     //Captura los datos del módulo de préstamo
+
     public void datosPrestamo(String fecha, String id) {
         this.jfDev.txtFechaProp.setText(fecha);
         this.jfDev.lbIdPrestamo.setText(id);
@@ -177,12 +193,6 @@ public class DevolucionController {
         jfDev.pnEditar.setVisible(editar);
         jfDev.pnActualizar.setVisible(actualizar);
         jfDev.tbTabla.enable(editar);
-
-    }
-
-    public void cancelarUpdate() throws SQLException {
-        Paneles(true, false);
-        limpiarCampos();
 
     }
 
