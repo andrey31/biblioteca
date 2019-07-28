@@ -20,10 +20,15 @@ public class JFDevoluciones extends javax.swing.JFrame {
         txtMulta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        btnEditar = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
         dtpFechaDev = new com.github.lgooddatepicker.components.DatePicker();
         lbIdPrestamo = new javax.swing.JLabel();
+        lbError = new javax.swing.JLabel();
+        pnEditar = new javax.swing.JPanel();
+        btnEditar = new javax.swing.JButton();
+        pnActualizar = new javax.swing.JPanel();
+        btnActualizar = new javax.swing.JButton();
+        btnCancelarUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,6 +48,7 @@ public class JFDevoluciones extends javax.swing.JFrame {
                 "Id", "FechaPropuesta", "Fecha", "Multa", "Prestamo"
             }
         ));
+        tbTabla.setRowSelectionAllowed(true);
         jScrollPane1.setViewportView(tbTabla);
         tbTabla.getAccessibleContext().setAccessibleName("");
 
@@ -50,8 +56,11 @@ public class JFDevoluciones extends javax.swing.JFrame {
 
         jLabel2.setText("Fecha de devolución");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        txtFechaProp.setEditable(false);
         jPanel1.add(txtFechaProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, -1));
 
+        txtMulta.setText("0");
         txtMulta.setBorder(null);
         jPanel1.add(txtMulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 230, 30));
 
@@ -59,22 +68,45 @@ public class JFDevoluciones extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 230, 10));
 
-        btnEditar.setText("Editar devolución");
-        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 150, 50));
-
         btnIngresar.setText("Ingresar devolución");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 150, 50));
+        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 150, 50));
         jPanel1.add(dtpFechaDev, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 230, -1));
 
+        lbIdPrestamo.setBackground(new java.awt.Color(255, 255, 255));
         lbIdPrestamo.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(lbIdPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 30, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 470));
+        lbError.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lbError.setForeground(new java.awt.Color(204, 0, 0));
+        jPanel1.add(lbError, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 320, 30));
+
+        pnEditar.setBackground(new java.awt.Color(255, 255, 255));
+        pnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        pnEditar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnEditar.setText("Editar devolución");
+        pnEditar.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 50));
+
+        jPanel1.add(pnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 170, 70));
+
+        pnActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        pnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        pnActualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnActualizar.setText("Actualizar devolución");
+        pnActualizar.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 50));
+
+        btnCancelarUpdate.setText("Cancelar");
+        pnActualizar.add(btnCancelarUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        jPanel1.add(pnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 270, 70));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -110,6 +142,8 @@ public class JFDevoluciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnActualizar;
+    public javax.swing.JButton btnCancelarUpdate;
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnIngresar;
     public com.github.lgooddatepicker.components.DatePicker dtpFechaDev;
@@ -119,7 +153,10 @@ public class JFDevoluciones extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    public javax.swing.JLabel lbError;
     public javax.swing.JLabel lbIdPrestamo;
+    public javax.swing.JPanel pnActualizar;
+    public javax.swing.JPanel pnEditar;
     public javax.swing.JTable tbTabla;
     public javax.swing.JTextField txtFechaProp;
     public javax.swing.JTextField txtMulta;
