@@ -41,7 +41,11 @@ public class LibroController {
         this.jfLibros.cmbAutores.setVisible(false);
         this.jfLibros.cmbEditoriales.setVisible(false);
         this.jfLibros.cmbTematica.setVisible(false);
-        this.jfLibros.txtAutorNombre.setToolTipText("Ingrese autor");
+        this.jfLibros.lblAutorNuevo.setVisible(false);
+        this.jfLibros.lblCmbEditorial.setVisible(false);
+        this.jfLibros.lblCmbTematica.setVisible(false);
+
+        
         this.cargarAutores();
         this.cargarEditoriales();
         this.cargarTematicas();
@@ -171,12 +175,9 @@ public class LibroController {
         if (this.jfLibros.rExistenteAutor.isSelected()) {
             this.jfLibros.rNuevoAutor.setSelected(false);
             this.jfLibros.cmbAutores.setVisible(true);
-            this.jfLibros.txtAutorNombre.setVisible(false);
-            this.jfLibros.txtAutorA1.setVisible(false);
-            this.jfLibros.txtAutorA2.setVisible(false);
-            this.jfLibros.lblNombre1.setVisible(false);
-            this.jfLibros.lblApellido1.setVisible(false);
-            this.jfLibros.lblApellido2.setVisible(false);
+            this.jfLibros.lblAutorNuevo.setVisible(true);
+            this.jfLibros.panelAutor.setVisible(false);
+            
 
         }
     }
@@ -190,6 +191,8 @@ public class LibroController {
             this.jfLibros.lblNombre1.setVisible(true);
             this.jfLibros.lblApellido1.setVisible(true);
             this.jfLibros.lblApellido2.setVisible(true);
+            this.jfLibros.panelAutor.setVisible(true);
+            this.jfLibros.lblAutorNuevo.setVisible(false);
         }
     }
 
@@ -198,6 +201,9 @@ public class LibroController {
             this.jfLibros.rNuevoEditorial.setSelected(false);
             this.jfLibros.cmbEditoriales.setVisible(true);
             this.jfLibros.txtEditoial.setVisible(false);
+            this.jfLibros.lblCmbEditorial.setVisible(true);
+            this.jfLibros.lblTxtEditorial.setVisible(false);
+            this.jfLibros.separadorEditorial.setVisible(false);
         }
     }
 
@@ -206,6 +212,9 @@ public class LibroController {
             this.jfLibros.rExistenteEditorial.setSelected(false);
             this.jfLibros.cmbEditoriales.setVisible(false);
             this.jfLibros.txtEditoial.setVisible(true);
+            this.jfLibros.lblCmbEditorial.setVisible(false);
+            this.jfLibros.lblTxtEditorial.setVisible(true);
+            this.jfLibros.separadorEditorial.setVisible(true);
         }
     }
 
@@ -214,6 +223,9 @@ public class LibroController {
             this.jfLibros.rNuevoTematica.setSelected(false);
             this.jfLibros.cmbTematica.setVisible(true);
             this.jfLibros.txtTematica.setVisible(false);
+            this.jfLibros.lblCmbTematica.setVisible(true);
+            this.jfLibros.lblTxtTematica.setVisible(false);
+            this.jfLibros.separadorTematica.setVisible(false);
         }
     }
 
@@ -222,6 +234,8 @@ public class LibroController {
             this.jfLibros.rExistenteTematica.setSelected(false);
             this.jfLibros.cmbTematica.setVisible(false);
             this.jfLibros.txtTematica.setVisible(true);
+            this.jfLibros.lblCmbTematica.setVisible(false);
+            this.jfLibros.lblTxtTematica.setVisible(true);
         }
     }
     
