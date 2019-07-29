@@ -27,7 +27,7 @@ public class DevolucionController {
     public DevolucionController() throws SQLException {
         this.jfDev = new JFDevoluciones();
         Paneles(true, false);
-        datosPrestamo("2019-07-01", "7");
+        //datosPrestamo("2019-07-01", "7");
         cargarDevolucion();
         jfDev.setVisible(true);
 
