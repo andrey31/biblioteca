@@ -92,7 +92,6 @@ public class DevolucionesDAO {
             result = true;
         }
         return result;
-
     }
 
     public void updateDevolucion(Devoluciones dev) throws SQLException {

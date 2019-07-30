@@ -192,6 +192,23 @@ public class PersonaDAO {
             System.out.println("ERROR----" + e);
         }
         con.closeConnection();
-        JOptionPane.showMessageDialog(registerView, "Registrado");
+        JOptionPane.showMessageDialog(registerView, "Actualizado");
+    }
+
+    public void Eliminar(Persona persona) {
+        //DELETE FROM `Personas` WHERE `Personas`.`id` = 13
+        Persona p = persona;
+        con.connect();
+        Connection accesoDB = con.getConnection();
+
+        try {
+            PreparedStatement ps = accesoDB.prepareStatement("DELETE FROM Personas, Usuarios WHERE Personas.id = ? AND Usuarios.fk_persona = Personas.id");
+            ps.setInt(1, p.getId());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("ERROR----" + e);
+        }
+        con.closeConnection();
+        JOptionPane.showMessageDialog(registerView, "Usuario "+p.getNombre()+" "+p.getApellido1()+" "+p.getApellido2()+" ELIMINADO");
     }
 }

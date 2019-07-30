@@ -6,10 +6,9 @@ import com.biblioteca.biblioteca.vistas.JFRegister;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,61 +35,70 @@ public class RegisterController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerView.btnGuardar) {
             persona = new Persona();
- 
-            try {
-                persona.setNombre(registerView.txtNombre.getText());
-                persona.setApellido1(registerView.txtApellido1.getText());
-                persona.setApellido2(registerView.txtApellido2.getText());
-                persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
-                persona.setTelefono(registerView.txtTelefono.getText());
-                persona.setDireccion(registerView.txtDireccion.getText());
-                persona.setUsuario(registerView.txtUsuario.getText());
-                persona.setContrase(registerView.txtContraseña.getText());
-                persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
-                personaDAO.Guardar(persona);
-                cargarPersonas();
-            } catch (Exception ex) {
-                System.out.println("ERROR----" + ex);
+
+            if (!verificarEspacios()) {
+                try {
+                    persona.setNombre(registerView.txtNombre.getText());
+                    persona.setApellido1(registerView.txtApellido1.getText());
+                    persona.setApellido2(registerView.txtApellido2.getText());
+                    persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
+                    persona.setTelefono(registerView.txtTelefono.getText());
+                    persona.setDireccion(registerView.txtDireccion.getText());
+                    persona.setUsuario(registerView.txtUsuario.getText());
+                    persona.setContrase(registerView.txtContraseña.getText());
+                    persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
+                    personaDAO.Guardar(persona);
+                    cargarPersonas();
+                } catch (Exception ex) {
+                    System.out.println("ERROR----" + ex);
+                }
             }
         } else if (e.getSource() == registerView.btnModificar) {
             persona = new Persona();
-            try {
-                persona.setId(Integer.parseInt(registerView.txtId.getText()));
-                persona.setNombre(registerView.txtNombre.getText());
-                persona.setApellido1(registerView.txtApellido1.getText());
-                persona.setApellido2(registerView.txtApellido2.getText());
-                persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
-                persona.setTelefono(registerView.txtTelefono.getText());
-                persona.setDireccion(registerView.txtDireccion.getText());
-                persona.setUsuario(registerView.txtUsuario.getText());
-                persona.setContrase(registerView.txtContraseña.getText());
-                persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
-                personaDAO.Modificar(persona);
-                cargarPersonas();
-            } catch (Exception ex) {
-                System.out.println("ERROR----" + ex);
+
+            if (!verificarEspacios()) {
+                try {
+                    persona.setId(Integer.parseInt(registerView.txtId.getText()));
+                    persona.setNombre(registerView.txtNombre.getText());
+                    persona.setApellido1(registerView.txtApellido1.getText());
+                    persona.setApellido2(registerView.txtApellido2.getText());
+                    persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
+                    persona.setTelefono(registerView.txtTelefono.getText());
+                    persona.setDireccion(registerView.txtDireccion.getText());
+                    persona.setUsuario(registerView.txtUsuario.getText());
+                    persona.setContrase(registerView.txtContraseña.getText());
+                    persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
+                    personaDAO.Modificar(persona);
+                    cargarPersonas();
+                } catch (Exception ex) {
+                    System.out.println("ERROR----" + ex);
+                }
             }
+
         } else if (e.getSource() == registerView.btnEliminar) {
             persona = new Persona();
- 
-            try {
-                persona.setNombre(registerView.txtNombre.getText());
-                persona.setApellido1(registerView.txtApellido1.getText());
-                persona.setApellido2(registerView.txtApellido2.getText());
-                persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
-                persona.setTelefono(registerView.txtTelefono.getText());
-                persona.setDireccion(registerView.txtDireccion.getText());
-                persona.setUsuario(registerView.txtUsuario.getText());
-                persona.setContrase(registerView.txtContraseña.getText());
-                persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
-                
-                cargarPersonas();
-            } catch (Exception ex) {
-                System.out.println("ERROR----" + ex);
+
+            if (!registerView.txtId.getText().isEmpty()) {
+                try {
+                    persona.setId(Integer.parseInt(registerView.txtId.getText()));
+                    persona.setNombre(registerView.txtNombre.getText());
+                    persona.setApellido1(registerView.txtApellido1.getText());
+                    persona.setApellido2(registerView.txtApellido2.getText());
+                    persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
+                    persona.setTelefono(registerView.txtTelefono.getText());
+                    persona.setDireccion(registerView.txtDireccion.getText());
+                    persona.setUsuario(registerView.txtUsuario.getText());
+                    persona.setContrase(registerView.txtContraseña.getText());
+                    persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
+                    personaDAO.Eliminar(persona);
+                    cargarPersonas();
+                } catch (Exception ex) {
+                    System.out.println("ERROR----" + ex);
+                }
             }
         }
     }
-
+    
     public void cargarPersonas() throws SQLException {
         String[] columns = new String[]{"Id", "Nombre", "Apellido1", "Apellido2", "Fecha_nacimiento", "Telefono", "Direccion", "Usuario", "Contraseña", "Tipo"};
         DefaultTableModel modelTable = new DefaultTableModel();
@@ -119,9 +127,47 @@ public class RegisterController implements ActionListener {
                     p[9] = "Estudiante";
                     break;
             }
-
             modelTable.addRow(p);
         }
         this.registerView.tblPersona.setModel(modelTable);
+    }
+
+    public boolean verificarEspacios() {
+
+        if (registerView.txtNombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Nombre");
+            registerView.txtNombre.requestFocus(true);
+            return true;
+        } else if (registerView.txtApellido1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Apellido Paterno");
+            registerView.txtApellido1.requestFocus(true);
+            return true;
+        } else if (registerView.txtApellido2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Apellido Materno");
+            registerView.txtApellido2.requestFocus(true);
+            return true;
+        } else if (registerView.dpFecha.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Fecha");
+            registerView.dpFecha.requestFocus(true);
+            return true;
+        } else if (registerView.txtTelefono.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Telefono");
+            registerView.txtTelefono.requestFocus(true);
+            return true;
+        } else if (registerView.txtDireccion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Direccion");
+            registerView.txtDireccion.requestFocus(true);
+            return true;
+        } else if (registerView.txtUsuario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Usuario");
+            registerView.txtUsuario.requestFocus(true);
+            return true;
+        } else if (registerView.txtContraseña.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(registerView, "Falta campo Contraseña");
+            registerView.txtContraseña.requestFocus(true);
+            return true;
+        }
+
+        return false;
     }
 }

@@ -91,14 +91,14 @@ public class JFDevoluciones extends javax.swing.JFrame {
         btnEditar.setText("Editar devolución");
         pnEditar.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 50));
 
-        jPanel1.add(pnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 170, 70));
+        jPanel1.add(pnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 170, 70));
 
         pnActualizar.setBackground(new java.awt.Color(255, 255, 255));
         pnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         pnActualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnActualizar.setText("Actualizar devolución");
-        pnActualizar.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 50));
+        pnActualizar.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 50));
 
         jPanel1.add(pnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 180, 70));
 

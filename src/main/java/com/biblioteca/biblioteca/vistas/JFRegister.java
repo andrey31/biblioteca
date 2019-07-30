@@ -160,9 +160,23 @@ public class JFRegister extends javax.swing.JFrame {
         tblPersona.setForeground(new java.awt.Color(255, 255, 255));
         tblPersona.setGridColor(new java.awt.Color(255, 255, 255));
         tblPersona.setToolTipText("");
+        tblPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPersonaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblPersona);
         if (tblPersona.getColumnModel().getColumnCount() > 0) {
-            tblPersona.getColumnModel().getColumn(0).setMaxWidth(30);
+            tblPersona.getColumnModel().getColumn(0).setResizable(false);
+            tblPersona.getColumnModel().getColumn(1).setResizable(false);
+            tblPersona.getColumnModel().getColumn(2).setResizable(false);
+            tblPersona.getColumnModel().getColumn(3).setResizable(false);
+            tblPersona.getColumnModel().getColumn(4).setResizable(false);
+            tblPersona.getColumnModel().getColumn(5).setResizable(false);
+            tblPersona.getColumnModel().getColumn(6).setResizable(false);
+            tblPersona.getColumnModel().getColumn(7).setResizable(false);
+            tblPersona.getColumnModel().getColumn(8).setResizable(false);
+            tblPersona.getColumnModel().getColumn(9).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 1030, 390));
@@ -273,6 +287,32 @@ public class JFRegister extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tblPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPersonaMouseClicked
+        int seleccion = tblPersona.getSelectedRow();
+        txtId.setText(String.valueOf(tblPersona.getValueAt(seleccion, 0)));
+        txtNombre.setText(String.valueOf(tblPersona.getValueAt(seleccion, 1)));
+        txtApellido1.setText(String.valueOf(tblPersona.getValueAt(seleccion, 2)));
+        txtApellido2.setText(String.valueOf(tblPersona.getValueAt(seleccion, 3)));
+        dpFecha.setText(String.valueOf(tblPersona.getValueAt(seleccion, 4)));
+        txtTelefono.setText(String.valueOf(tblPersona.getValueAt(seleccion, 5)));
+        txtDireccion.setText(String.valueOf(tblPersona.getValueAt(seleccion, 6)));
+        txtUsuario.setText(String.valueOf(tblPersona.getValueAt(seleccion, 7)));
+        txtContraseña.setText(String.valueOf(tblPersona.getValueAt(seleccion, 8)));
+        int p=0;
+        switch (String.valueOf(tblPersona.getValueAt(seleccion, 9))) {
+            case "Admin":
+                p = 0;
+                break;
+            case "Bibliotecario":
+                p = 1;
+                break;
+            case "Estudiante":
+                p = 2;
+                break;
+        }
+        cmbTipo.setSelectedIndex(p);
+    }//GEN-LAST:event_tblPersonaMouseClicked
 
     /**
      * @param args the command line arguments

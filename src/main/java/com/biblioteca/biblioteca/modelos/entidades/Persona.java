@@ -109,6 +109,7 @@ public class Persona {
     public void setTipoUsu(int tipoUsu) {
         this.tipoUsu = tipoUsu;
     }
+
     
     
 }
