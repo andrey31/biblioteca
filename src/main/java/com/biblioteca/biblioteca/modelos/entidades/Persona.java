@@ -1,19 +1,23 @@
 
 package com.biblioteca.biblioteca.modelos.entidades;
 
+import java.sql.Date;
+
 /**
  *
  * @author Adriel
  */
 public class Persona {
     int id;
-    String nombre,apellido1,apellido2, fechaNac, telefono, direccion, usuario, contrase;
+    String nombre,apellido1,apellido2;
+    Date fechaNac;
+    String telefono, direccion, usuario, contrase;
     int tipoUsu;
 
     public Persona() {
     }
 
-    public Persona(int id, String nombre, String apellido1, String apellido2, String fechaNac, String telefono, String direccion, String usuario, String contrase, int tipoUsu) {
+    public Persona(int id, String nombre, String apellido1, String apellido2, Date fechaNac, String telefono, String direccion, String usuario, String contrase, int tipoUsu) {
         this.id = id;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -58,11 +62,11 @@ public class Persona {
         this.apellido2 = apellido2;
     }
 
-    public String getFechaNac() {
+    public Date getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(String fechaNac) {
+    public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
 
@@ -98,7 +102,7 @@ public class Persona {
         this.contrase = contrase;
     }
 
-    public int getTipoUsu() {
+     public int getTipoUsu() {
         return tipoUsu;
     }
 

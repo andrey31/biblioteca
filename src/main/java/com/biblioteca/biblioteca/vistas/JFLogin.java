@@ -87,6 +87,7 @@ public class JFLogin extends javax.swing.JFrame {
         txtUsuario.setBorder(null);
         Panel_Login.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 270, 50));
 
+        lblErrorUsu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
         lblErrorUsu.setForeground(new java.awt.Color(255, 102, 102));
         lblErrorUsu.setText("Error");
         Panel_Login.add(lblErrorUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
@@ -95,6 +96,7 @@ public class JFLogin extends javax.swing.JFrame {
         txtContraseña.setBorder(null);
         Panel_Login.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 270, 50));
 
+        lblErrorContra.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
         lblErrorContra.setForeground(new java.awt.Color(255, 102, 102));
         lblErrorContra.setText("Error");
         Panel_Login.add(lblErrorContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));

@@ -6,6 +6,7 @@ import com.biblioteca.biblioteca.vistas.JFRegister;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,28 +36,60 @@ public class RegisterController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerView.btnGuardar) {
             persona = new Persona();
-            persona.setNombre(registerView.txtNombre.getText());
-            persona.setApellido1(registerView.txtApellido1.getText());
-            persona.setApellido2(registerView.txtApellido2.getText());
-            persona.setFechaNac(registerView.txtAno.getText() + "-" + registerView.txtMes.getText() + "-" + registerView.txtDia.getText());
-            persona.setTelefono(registerView.txtTelefono.getText());
-            persona.setDireccion(registerView.txtDireccion.getText());
-            persona.setUsuario(registerView.txtUsuario.getText());
-            persona.setContrase(registerView.txtContraseña.getText());
-            persona.setTipoUsu(1);
-            personaDAO.Guardar(persona);
+ 
             try {
+                persona.setNombre(registerView.txtNombre.getText());
+                persona.setApellido1(registerView.txtApellido1.getText());
+                persona.setApellido2(registerView.txtApellido2.getText());
+                persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
+                persona.setTelefono(registerView.txtTelefono.getText());
+                persona.setDireccion(registerView.txtDireccion.getText());
+                persona.setUsuario(registerView.txtUsuario.getText());
+                persona.setContrase(registerView.txtContraseña.getText());
+                persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
+                personaDAO.Guardar(persona);
                 cargarPersonas();
             } catch (Exception ex) {
                 System.out.println("ERROR----" + ex);
             }
         } else if (e.getSource() == registerView.btnModificar) {
-
+            persona = new Persona();
+            try {
+                persona.setId(Integer.parseInt(registerView.txtId.getText()));
+                persona.setNombre(registerView.txtNombre.getText());
+                persona.setApellido1(registerView.txtApellido1.getText());
+                persona.setApellido2(registerView.txtApellido2.getText());
+                persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
+                persona.setTelefono(registerView.txtTelefono.getText());
+                persona.setDireccion(registerView.txtDireccion.getText());
+                persona.setUsuario(registerView.txtUsuario.getText());
+                persona.setContrase(registerView.txtContraseña.getText());
+                persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
+                personaDAO.Modificar(persona);
+                cargarPersonas();
+            } catch (Exception ex) {
+                System.out.println("ERROR----" + ex);
+            }
         } else if (e.getSource() == registerView.btnEliminar) {
-
+            persona = new Persona();
+ 
+            try {
+                persona.setNombre(registerView.txtNombre.getText());
+                persona.setApellido1(registerView.txtApellido1.getText());
+                persona.setApellido2(registerView.txtApellido2.getText());
+                persona.setFechaNac(Date.valueOf(registerView.dpFecha.getDate()));
+                persona.setTelefono(registerView.txtTelefono.getText());
+                persona.setDireccion(registerView.txtDireccion.getText());
+                persona.setUsuario(registerView.txtUsuario.getText());
+                persona.setContrase(registerView.txtContraseña.getText());
+                persona.setTipoUsu((registerView.cmbTipo.getSelectedIndex() + 1));
+                
+                cargarPersonas();
+            } catch (Exception ex) {
+                System.out.println("ERROR----" + ex);
+            }
         }
     }
-
 
     public void cargarPersonas() throws SQLException {
         String[] columns = new String[]{"Id", "Nombre", "Apellido1", "Apellido2", "Fecha_nacimiento", "Telefono", "Direccion", "Usuario", "Contraseña", "Tipo"};

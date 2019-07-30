@@ -32,7 +32,7 @@ public class PersonaDAO {
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getApellido1());
             ps.setString(3, p.getApellido2());
-            ps.setString(4, p.getFechaNac());
+            ps.setDate(4, p.getFechaNac());
             ps.setString(5, p.getTelefono());
             ps.setString(6, p.getDireccion());
             ps.executeUpdate();
@@ -59,7 +59,6 @@ public class PersonaDAO {
     }
 
    public List<Persona> getAllPersonas() throws SQLException{
-        
         con.connect();
         Connection connection = con.getConnection();
         
@@ -76,7 +75,7 @@ public class PersonaDAO {
                     rs.getString("nombre"),
                     rs.getString("apellido1"),
                     rs.getString("apellido2"),
-                    rs.getString("fecha_nacimiento"),
+                    rs.getDate("fecha_nacimiento"),
                     rs.getString("telefono"),
                     rs.getString("direccion"),
                     rs.getString("usuario"),
@@ -122,7 +121,7 @@ public class PersonaDAO {
                                 persona.setNombre(rs.getString(2));
                                 persona.setApellido1(rs.getString(3));
                                 persona.setApellido2(rs.getString(4));
-                                persona.setFechaNac(rs.getString(5));
+                                persona.setFechaNac(rs.getDate(5));
                                 persona.setTelefono(rs.getString(6));
                                 persona.setDireccion(rs.getString(7));
                                 persona.setUsuario(rs.getString(8));
@@ -165,5 +164,34 @@ public class PersonaDAO {
         }
         con.closeConnection();
         return persona;
+    }
+
+    public void Modificar(Persona persona) {
+        Persona p = persona;
+        con.connect();
+        Connection accesoDB = con.getConnection();
+
+        try {
+            PreparedStatement ps = accesoDB.prepareStatement("UPDATE Personas, Usuarios SET Personas.nombre = ?,"
+                    + " Personas.apellido1 = ?, Personas.apellido2 = ?, Personas.fecha_nacimiento = ?,"
+                    + " Personas.telefono = ?, Personas.direccion = ?, Usuarios.usuario = ?,"
+                    + " Usuarios.contrasena = ?, Usuarios.fk_tipo = ? WHERE Personas.id = ? AND Usuarios.fk_persona = Personas.id");
+            ps.setString(1, p.getNombre());
+            ps.setString(2, p.getApellido1());
+            ps.setString(3, p.getApellido2());
+            ps.setDate(4, p.getFechaNac());
+            ps.setString(5, p.getTelefono());
+            ps.setString(6, p.getDireccion());
+            ps.setString(7, p.getUsuario());
+            ps.setString(8, p.getContrase());
+            ps.setInt(9, p.getTipoUsu());
+            ps.setInt(10, p.getId());
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("ERROR----" + e);
+        }
+        con.closeConnection();
+        JOptionPane.showMessageDialog(registerView, "Registrado");
     }
 }
