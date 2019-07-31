@@ -14,7 +14,7 @@ public class JFLibros extends javax.swing.JFrame {
     /**
      * Creates new form JFLibros
      */
-    public void main(){
+    public void main() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -33,8 +33,10 @@ public class JFLibros extends javax.swing.JFrame {
         }
         //</editor-fold>
     }
+
     public JFLibros() {
         initComponents();
+        setLocationRelativeTo(null);
         setSize(1338, 760);
     }
 

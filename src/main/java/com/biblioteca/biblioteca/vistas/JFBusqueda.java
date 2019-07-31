@@ -80,15 +80,15 @@ public class JFBusqueda extends javax.swing.JFrame {
         }
     }
 
-    public void buscar(String texto) {
-        try {
+    //public void buscar(String texto) {
+      //  try {
             //String [] libros("Id","Titulo","ISBN","Fecha","Precio","Autor","Editorial","Tematica");
-            String SQL = "SELECT * FROM LIBROS WHERE id_libro like" + '"' + texto + '"' + "_%";
-            System.out.println(SQL);
+        //    String SQL = "SELECT * FROM LIBROS WHERE id_libro like" + '"' + texto + '"' + "_%";
+          //  System.out.println(SQL);
 
-        } catch (Exception e) {
-        }
-    }
+        //} catch (Exception e) {
+        //}
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.

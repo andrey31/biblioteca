@@ -4,6 +4,7 @@ public class JFDevoluciones extends javax.swing.JFrame {
 
     public JFDevoluciones() {
         initComponents();
+        setLocationRelativeTo(null);
 
     }
 

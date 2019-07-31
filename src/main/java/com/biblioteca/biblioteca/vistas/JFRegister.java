@@ -16,6 +16,7 @@ public class JFRegister extends javax.swing.JFrame {
      */
     public JFRegister() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -299,7 +300,7 @@ public class JFRegister extends javax.swing.JFrame {
         txtDireccion.setText(String.valueOf(tblPersona.getValueAt(seleccion, 6)));
         txtUsuario.setText(String.valueOf(tblPersona.getValueAt(seleccion, 7)));
         txtContraseña.setText(String.valueOf(tblPersona.getValueAt(seleccion, 8)));
-        int p=0;
+        int p = 0;
         switch (String.valueOf(tblPersona.getValueAt(seleccion, 9))) {
             case "Admin":
                 p = 0;

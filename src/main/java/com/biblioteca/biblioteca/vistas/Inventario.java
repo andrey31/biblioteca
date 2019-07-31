@@ -16,6 +16,7 @@ public class Inventario extends javax.swing.JFrame {
      */
     public Inventario() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -49,7 +50,7 @@ public class Inventario extends javax.swing.JFrame {
         Subtittle_2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         Subtittle_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Refresh_45px.png"))); // NOI18N
         Subtittle_2.setText("Inventario:");
-        jPanel2.add(Subtittle_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 60));
+        jPanel2.add(Subtittle_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 220, 60));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
