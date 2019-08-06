@@ -118,10 +118,7 @@ public class BusquedaDAO {
               ResultSet rs = cs.executeQuery();
               while(rs.next()){
                   LibroController = new LibroController();
-                  LibroController.cargarAutores();
-                  LibroController.cargarLibros();
-                  LibroController.cargarEditoriales();
-                  LibroController.cargarTematicas();
+                  LibroController.setId_libro(rs.getString(1));
                   
               }
           } catch (Exception e) {

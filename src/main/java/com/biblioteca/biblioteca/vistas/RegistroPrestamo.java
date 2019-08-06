@@ -6,6 +6,7 @@
 package com.biblioteca.biblioteca.vistas;
 
 import com.biblioteca.biblioteca.modelos.Conexion;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,11 @@ public class RegistroPrestamo extends javax.swing.JFrame {
     public RegistroPrestamo() {
         initComponents();
         
+//        Conexion c = new Conexion();
+//        Connection connection = c.getConnection();
+//
+//        String sql = "SELECT *FROM Prestamos";
+//        
         
     }
 
