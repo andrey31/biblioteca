@@ -5,6 +5,12 @@
  */
 package com.biblioteca.biblioteca.vistas;
 
+import com.biblioteca.biblioteca.controladores.RegisterController;
+import com.biblioteca.biblioteca.modelos.PersonaDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author cesar
@@ -274,12 +280,15 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DevolucionesMouseClicked
 
     private void btnRegistroBibliotecarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroBibliotecarioMouseClicked
-
         JFRegister r = new JFRegister();
+        PersonaDAO personaDAO = new PersonaDAO();
+        try {
+            RegisterController rc = new RegisterController(r, personaDAO);
+        } catch (SQLException ex) {
+            Logger.getLogger(JFMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         r.setVisible(true);
         this.dispose();
-
-
     }//GEN-LAST:event_btnRegistroBibliotecarioMouseClicked
 
     private void btn_InventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InventarioMouseClicked

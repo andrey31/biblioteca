@@ -58,18 +58,18 @@ public class PersonaDAO {
         JOptionPane.showMessageDialog(registerView, "Registrado");
     }
 
-   public List<Persona> getAllPersonas() throws SQLException{
+    public List<Persona> getAllPersonas() throws SQLException {
         con.connect();
         Connection connection = con.getConnection();
-        
+
         String query = "SELECT Personas.*, Usuarios.usuario,Usuarios.contrasena, Tipo_Usuario.id_tipo FROM Personas, Usuarios,"
                 + " Tipo_Usuario WHERE Usuarios.fk_persona = Personas.id AND Usuarios.fk_tipo = Tipo_Usuario.id_tipo";
-        
+
         ResultSet rs = connection.prepareStatement(query).executeQuery();
-        
+
         List<Persona> personas = new ArrayList<>();
-        
-        while(rs.next()){
+
+        while (rs.next()) {
             Persona persona = new Persona(
                     rs.getInt("id"),
                     rs.getString("nombre"),
@@ -82,8 +82,8 @@ public class PersonaDAO {
                     rs.getString("contrasena"),
                     rs.getInt("id_tipo")
             );
-            
-            personas.add(persona); 
+
+            personas.add(persona);
         }
         con.closeConnection();
         return personas;
@@ -209,6 +209,42 @@ public class PersonaDAO {
             System.out.println("ERROR----" + e);
         }
         con.closeConnection();
-        JOptionPane.showMessageDialog(registerView, "Usuario "+p.getNombre()+" "+p.getApellido1()+" "+p.getApellido2()+" ELIMINADO");
+        JOptionPane.showMessageDialog(registerView, "Usuario " + p.getNombre() + " " + p.getApellido1() + " " + p.getApellido2() + " ELIMINADO");
+    }
+
+    public List<Persona> buscar(String buscar) throws SQLException {
+        con.connect();
+        Connection accesoDB = con.getConnection();
+
+        String query = "SELECT Personas.*, Usuarios.usuario,Usuarios.contrasena, Tipo_Usuario.id_tipo FROM Personas, Usuarios,"
+                + " Tipo_Usuario WHERE Personas.id LIKE '%"+buscar+"%'"; /* OR Personas.nombre LIKE '%"+buscar+"%' OR Personas.apellido1 LIKE '%"+buscar+"%'";
+                + " OR Personas.apellido2 LIKE '%"+buscar+"%' OR Personas.fecha_nacimiento LIKE '%"+buscar+"%' OR Personas.telefono LIKE '%"+buscar+"%'"
+                + " OR Personas.direccion LIKE '%"+buscar+"%' OR Usuarios.usuario LIKE '%"+buscar+"%' OR Usuarios.contrasena LIKE '%"+buscar+"%' OR Tipo_Usuario.id_tipo LIKE '%"+buscar+"%'";*/
+
+        PreparedStatement ps = accesoDB.prepareStatement(query);
+        
+
+        ResultSet rs = ps.executeQuery();
+
+        List<Persona> personas = new ArrayList<>();
+
+        while (rs.next()) {
+            Persona persona = new Persona(
+                    rs.getInt("id"),
+                    rs.getString("nombre"),
+                    rs.getString("apellido1"),
+                    rs.getString("apellido2"),
+                    rs.getDate("fecha_nacimiento"),
+                    rs.getString("telefono"),
+                    rs.getString("direccion"),
+                    rs.getString("usuario"),
+                    rs.getString("contrasena"),
+                    rs.getInt("id_tipo")
+            );
+
+            personas.add(persona);
+        }
+        con.closeConnection();
+        return personas;
     }
 }

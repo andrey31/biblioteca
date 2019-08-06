@@ -54,7 +54,6 @@ public class JFRegister extends javax.swing.JFrame {
         lblNombre8 = new javax.swing.JLabel();
         lblNombre9 = new javax.swing.JLabel();
         lblNombre10 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -139,8 +138,13 @@ public class JFRegister extends javax.swing.JFrame {
         txtNombre.setBorder(null);
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 200, 30));
 
-        txtId.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         txtId.setBorder(null);
+        txtId.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtIdKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 200, 30));
 
         tblPersona.setModel(new javax.swing.table.DefaultTableModel(
@@ -188,8 +192,8 @@ public class JFRegister extends javax.swing.JFrame {
         lblNombre1.setToolTipText("");
         jPanel1.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, 30));
 
+        lblNombre2.setText("Buscar:");
         lblNombre2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        lblNombre2.setText("Id:");
         lblNombre2.setToolTipText("");
         jPanel1.add(lblNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 30));
 
@@ -232,9 +236,6 @@ public class JFRegister extends javax.swing.JFrame {
         lblNombre10.setText("Contraseña:");
         lblNombre10.setToolTipText("");
         jPanel1.add(lblNombre10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, 30));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 40, 50));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_ID_Verified_35px.png"))); // NOI18N
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 40, 50));
@@ -332,6 +333,10 @@ public class JFRegister extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnregresoActionPerformed
 
+    private void txtIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -377,7 +382,6 @@ public class JFRegister extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbTipo;
     public com.github.lgooddatepicker.components.DatePicker dpFecha;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
