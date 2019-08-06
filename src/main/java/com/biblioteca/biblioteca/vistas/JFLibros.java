@@ -161,7 +161,6 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 50, 50));
 
-        txtTitulo.setBackground(new java.awt.Color(255, 255, 255));
         txtTitulo.setBorder(null);
         txtTitulo.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 210, 30));
@@ -170,12 +169,10 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 50, 50));
 
-        txtISBN.setBackground(new java.awt.Color(255, 255, 255));
         txtISBN.setBorder(null);
         txtISBN.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 210, 30));
 
-        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setBorder(null);
         txtPrecio.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, 210, 30));
@@ -230,12 +227,10 @@ public class JFLibros extends javax.swing.JFrame {
         rExistenteTematica.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(rExistenteTematica, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 290, -1, -1));
 
-        txtTematica.setBackground(new java.awt.Color(255, 255, 255));
         txtTematica.setBorder(null);
         txtTematica.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(txtTematica, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 330, 160, 27));
 
-        txtEditoial.setBackground(new java.awt.Color(255, 255, 255));
         txtEditoial.setBorder(null);
         txtEditoial.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jPanel1.add(txtEditoial, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 160, 27));
@@ -269,7 +264,7 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Add_55px.png"))); // NOI18N
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 60, 60));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 60));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1410, 60));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Pay_Date_35px.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 90, 40, 50));
@@ -342,6 +337,7 @@ public class JFLibros extends javax.swing.JFrame {
                 .addGroup(panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAutorLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(lblNombre1))
                     .addGroup(panelAutorLayout.createSequentialGroup()
                         .addGroup(panelAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,8 +372,11 @@ public class JFLibros extends javax.swing.JFrame {
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelAutorLayout.createSequentialGroup()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(lblApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(lblApellido2)
                         .addGap(8, 8, 8)
                         .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -390,7 +389,7 @@ public class JFLibros extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1406, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
