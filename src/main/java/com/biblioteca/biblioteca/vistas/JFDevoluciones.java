@@ -33,6 +33,7 @@ public class JFDevoluciones extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Subtittle_2 = new javax.swing.JLabel();
+        btnregreso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -138,7 +139,15 @@ public class JFDevoluciones extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 590));
+        btnregreso.setText("Regresar al menu principal");
+        btnregreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,6 +159,12 @@ public class JFDevoluciones extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnregresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresoActionPerformed
+       JFMenuPrincipal m = new JFMenuPrincipal();
+       m.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnregresoActionPerformed
 
     public static void main(String args[]) {
 
@@ -183,6 +198,7 @@ public class JFDevoluciones extends javax.swing.JFrame {
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnIngresar;
+    private javax.swing.JButton btnregreso;
     public com.github.lgooddatepicker.components.DatePicker dtpFechaDev;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;

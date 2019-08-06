@@ -35,12 +35,12 @@ public class Conexion {
         }
 
     }
-    
-    public Connection getConnection(){
+
+    public Connection getConnection() {
         return connection;
     }
 
-    public Connection closeConnection(){
+    public Connection closeConnection() {
         try {
             connection.close();
             System.out.println("close connection....ok");

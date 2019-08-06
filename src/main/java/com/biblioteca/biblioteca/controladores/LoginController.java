@@ -45,14 +45,17 @@ public class LoginController implements ActionListener {
             String contra = String.valueOf(loginView.txtContraseña.getText());
             persona = personaDAO.verificaUsuario(usuario, contra, loginView);
             if (persona != null) {
+                JFMenuPrincipal menuView = new JFMenuPrincipal();
                 JFRegister registerView = new JFRegister();
                 try {
                     RegisterController RController = new RegisterController(registerView,personaDAO);
                 } catch (SQLException ex) {
                     System.out.println("Error---- "+ex);
                 }
-                registerView.setVisible(true);
-                registerView.setLocationRelativeTo(null);
+                menuView.setVisible(true);
+                menuView.setLocationRelativeTo(null);
+                /*registerView.setVisible(true);
+                registerView.setLocationRelativeTo(null);*/
                 loginView.dispose();
             }
         }

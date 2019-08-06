@@ -4,7 +4,8 @@ package com.biblioteca.biblioteca.vistas;
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- *//**
+ */
+/**
  *
  * @author cesar
  */
@@ -57,6 +58,11 @@ public class JFBusqueda extends javax.swing.JFrame {
         Btnsalir.setText("Salir");
 
         btnregreso.setText("Regresar al menu principal");
+        btnregreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,6 +106,14 @@ public class JFBusqueda extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnregresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresoActionPerformed
+
+        JFMenuPrincipal m = new JFMenuPrincipal();
+        m.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnregresoActionPerformed
 
     /**
      * @param args the command line arguments

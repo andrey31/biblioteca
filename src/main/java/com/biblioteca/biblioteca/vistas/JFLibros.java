@@ -80,8 +80,8 @@ public class JFLibros extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         inputFecha = new com.github.lgooddatepicker.components.DatePicker();
         jPanel2 = new javax.swing.JPanel();
-        app_Tittle = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        app_Tittle = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblCmbTematica = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -111,6 +111,7 @@ public class JFLibros extends javax.swing.JFrame {
         jSeparator11 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        btnregreso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -256,13 +257,13 @@ public class JFLibros extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(130, 204, 171));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        app_Tittle.setBackground(new java.awt.Color(255, 255, 255));
-        app_Tittle.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
-        app_Tittle.setText("Registro bibliotecario");
-        jPanel2.add(app_Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 320, 60));
-
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Add_55px.png"))); // NOI18N
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 60, 60));
+
+        app_Tittle.setText("Registro bibliotecario");
+        app_Tittle.setBackground(new java.awt.Color(255, 255, 255));
+        app_Tittle.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jPanel2.add(app_Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 320, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1410, 60));
 
@@ -385,6 +386,14 @@ public class JFLibros extends javax.swing.JFrame {
 
         jPanel1.add(panelAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 310, -1, -1));
 
+        btnregreso.setText("Regresar al menu principal");
+        btnregreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 730, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -398,6 +407,14 @@ public class JFLibros extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnregresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresoActionPerformed
+
+        JFMenuPrincipal m = new JFMenuPrincipal();
+        m.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnregresoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,6 +455,7 @@ public class JFLibros extends javax.swing.JFrame {
     private javax.swing.JLabel Autores;
     private javax.swing.JLabel app_Tittle;
     public javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnregreso;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JComboBox<String> cmbAutores;
     public javax.swing.JComboBox<String> cmbEditoriales;

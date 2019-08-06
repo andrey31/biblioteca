@@ -76,6 +76,7 @@ public class JFRegister extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         app_Tittle = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnregreso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,10 +98,10 @@ public class JFRegister extends javax.swing.JFrame {
         btnModificar.setOpaque(false);
         jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 560, -1, -1));
 
-        btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
-        btnGuardar.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Checkmark_45px.png"))); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuardar.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         btnGuardar.setOpaque(false);
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 560, -1, -1));
 
@@ -192,8 +193,8 @@ public class JFRegister extends javax.swing.JFrame {
         lblNombre2.setToolTipText("");
         jPanel1.add(lblNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 30));
 
-        lblNombre3.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         lblNombre3.setText("Nombre:");
+        lblNombre3.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         lblNombre3.setToolTipText("");
         jPanel1.add(lblNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, 30));
 
@@ -284,7 +285,15 @@ public class JFRegister extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 630));
+        btnregreso.setText("Regresar al menu principal");
+        btnregreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -314,6 +323,14 @@ public class JFRegister extends javax.swing.JFrame {
         }
         cmbTipo.setSelectedIndex(p);
     }//GEN-LAST:event_tblPersonaMouseClicked
+
+    private void btnregresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresoActionPerformed
+
+        JFMenuPrincipal m = new JFMenuPrincipal();
+        m.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnregresoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,6 +373,7 @@ public class JFRegister extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnregreso;
     public javax.swing.JComboBox<String> cmbTipo;
     public com.github.lgooddatepicker.components.DatePicker dpFecha;
     private javax.swing.JLabel jLabel1;
