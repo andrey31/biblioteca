@@ -2,10 +2,15 @@ package com.biblioteca.biblioteca;
 
 import com.biblioteca.biblioteca.controladores.BusquedaController;
 import com.biblioteca.biblioteca.controladores.DevolucionController;
+import com.biblioteca.biblioteca.controladores.LibroController;
 import com.biblioteca.biblioteca.modelos.entidades.Persona;
 import com.biblioteca.biblioteca.modelos.PersonaDAO;
 import com.biblioteca.biblioteca.vistas.JFLogin;
 import com.biblioteca.biblioteca.controladores.LoginController;
+import com.biblioteca.biblioteca.modelos.BusquedaDAO;
+import com.biblioteca.biblioteca.modelos.LibroDAO;
+import com.biblioteca.biblioteca.vistas.JFBusqueda;
+import com.biblioteca.biblioteca.vistas.JFLibros;
 import java.sql.SQLException;
 
 public class Main {
@@ -22,7 +27,7 @@ public class Main {
 //DevolucionController dev = new DevolucionController();
 
 
-
+   
     }
 
 }
