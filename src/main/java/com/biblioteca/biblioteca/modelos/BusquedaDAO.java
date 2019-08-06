@@ -5,11 +5,14 @@
  */
 package com.biblioteca.biblioteca.modelos;
 
+import com.biblioteca.biblioteca.controladores.LibroController;
 import com.biblioteca.biblioteca.modelos.entidades.Autor;
 import com.biblioteca.biblioteca.modelos.entidades.Editorial;
 import com.biblioteca.biblioteca.modelos.entidades.Libro;
 import com.biblioteca.biblioteca.modelos.entidades.Tematica;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ public class BusquedaDAO {
     private EditorialDAO editorialDAO = new EditorialDAO();
     private TematicaDAO tematicaDAO = new TematicaDAO();
     
-    public Integer saveLibro(Libro libro) throws SQLException {
+  public Integer saveLibro(Libro libro) throws SQLException {
         
         conexion.connect();
         
@@ -45,11 +48,28 @@ public class BusquedaDAO {
         if(fkTematica == 0){
             fkTematica = tematicaDAO.saveTematica(libro.getTematica());
         }
-       
-     return null;   
+        
+        String query = "INSERT INTO Libros "
+                + "(titulo, ISBN, fecha, precio, fk_autor, fk_editorial, fk_tematica) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        PreparedStatement ps = connection.prepareStatement(query);
+        
+        ps.setString(1, libro.getTitulo());
+        ps.setString(2, libro.getISBN());
+        ps.setDate(3, libro.getFecha());
+        ps.setDouble(4, libro.getPrecio());
+        
+        ps.setInt(5, fkAutor);
+        ps.setInt(6, fkEditorial);
+        ps.setInt(7, fkTematica);
+        
+        int insert = ps.executeUpdate();
+        conexion.closeConnection();
+        
+        return insert;
     }
-
-public List<Libro> getAllLibros() throws SQLException{
+    public List<Libro> getAllLibros() throws SQLException{
         
         conexion.connect();
         Connection connection = conexion.getConnection();
@@ -87,6 +107,25 @@ public List<Libro> getAllLibros() throws SQLException{
         conexion.closeConnection();
         return libros;
     }
+  public ArrayList<LibroController>buscarlibros(String id){
+          ArrayList<LibroController> listali = new ArrayList();
+          LibroController LibroController;
+      
+          try {
+              Connection connection = conexion.getConnection();
+              CallableStatement cs = connection.prepareCall("{call sp_buscarlibros(?)}");
+              cs.setString(1, id);
+              ResultSet rs = cs.executeQuery();
+              while(rs.next()){
+                  LibroController = new LibroController();
+                  LibroController.cargarAutores();
+                  LibroController.cargarLibros();
+                  LibroController.cargarEditoriales();
+                  LibroController.cargarTematicas();
+                  
+              }
+          } catch (Exception e) {
+          }
+          return listali;
 }
-
-    
+}
