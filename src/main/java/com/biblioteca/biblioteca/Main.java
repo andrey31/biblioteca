@@ -7,6 +7,7 @@ import com.biblioteca.biblioteca.modelos.entidades.Persona;
 import com.biblioteca.biblioteca.modelos.PersonaDAO;
 import com.biblioteca.biblioteca.vistas.JFLogin;
 import com.biblioteca.biblioteca.controladores.LoginController;
+import com.biblioteca.biblioteca.controladores.RegisterController;
 import com.biblioteca.biblioteca.modelos.BusquedaDAO;
 import com.biblioteca.biblioteca.modelos.LibroDAO;
 import com.biblioteca.biblioteca.vistas.JFBusqueda;
@@ -24,7 +25,8 @@ public class Main {
         LoginController lController = new LoginController(loginView, personaDAO);
         loginView.setVisible(true);
         loginView.setLocationRelativeTo(null);
-//DevolucionController dev = new DevolucionController();
+        
+
 
 
    

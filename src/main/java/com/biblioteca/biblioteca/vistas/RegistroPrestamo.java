@@ -15,16 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class RegistroPrestamo extends javax.swing.JFrame {
 
-  
     public RegistroPrestamo() {
         initComponents();
-        
-//        Conexion c = new Conexion();
-//        Connection connection = c.getConnection();
-//
-//        String sql = "SELECT *FROM Prestamos";
-//        
-        
     }
 
     /**
@@ -206,7 +198,7 @@ public class RegistroPrestamo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmostrarActionPerformed
- 
+
     }//GEN-LAST:event_btnmostrarActionPerformed
 
     /**
