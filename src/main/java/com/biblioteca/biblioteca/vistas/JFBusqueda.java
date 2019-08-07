@@ -18,6 +18,7 @@ public class JFBusqueda extends javax.swing.JFrame {
      */
     public JFBusqueda() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

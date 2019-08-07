@@ -5,6 +5,7 @@
  */
 package com.biblioteca.biblioteca.vistas;
 
+import com.biblioteca.biblioteca.controladores.LibroController;
 import com.biblioteca.biblioteca.controladores.RegisterController;
 import com.biblioteca.biblioteca.modelos.PersonaDAO;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
      */
     public JFMenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -63,10 +65,10 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        app_Tittle.setBackground(new java.awt.Color(255, 255, 255));
-        app_Tittle.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
         app_Tittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Assignment_Return_50px.png"))); // NOI18N
         app_Tittle.setText("Devoluciones");
+        app_Tittle.setBackground(new java.awt.Color(255, 255, 255));
+        app_Tittle.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout btn_DevolucionesLayout = new javax.swing.GroupLayout(btn_Devoluciones);
         btn_Devoluciones.setLayout(btn_DevolucionesLayout);
@@ -87,10 +89,10 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
         btn_RegistroBibliotecario.setBackground(new java.awt.Color(130, 204, 171));
         btn_RegistroBibliotecario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        app_Tittle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Check_50px.png"))); // NOI18N
+        app_Tittle1.setText("En Proceso...");
         app_Tittle1.setBackground(new java.awt.Color(255, 255, 255));
         app_Tittle1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
-        app_Tittle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Check_50px.png"))); // NOI18N
-        app_Tittle1.setText("Registro bibliotecario");
         app_Tittle1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 app_Tittle1MouseClicked(evt);
@@ -104,7 +106,7 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             .addGroup(btn_RegistroBibliotecarioLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(app_Tittle1)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         btn_RegistroBibliotecarioLayout.setVerticalGroup(
             btn_RegistroBibliotecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,10 +123,10 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        app_Tittle2.setBackground(new java.awt.Color(255, 255, 255));
-        app_Tittle2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
         app_Tittle2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Search_50px.png"))); // NOI18N
         app_Tittle2.setText("Búsqueda");
+        app_Tittle2.setBackground(new java.awt.Color(255, 255, 255));
+        app_Tittle2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout btn_BúsquedaLayout = new javax.swing.GroupLayout(btn_Búsqueda);
         btn_Búsqueda.setLayout(btn_BúsquedaLayout);
@@ -150,10 +152,10 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        app_Tittle3.setBackground(new java.awt.Color(255, 255, 255));
-        app_Tittle3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
         app_Tittle3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Book_52px.png"))); // NOI18N
         app_Tittle3.setText("Libros");
+        app_Tittle3.setBackground(new java.awt.Color(255, 255, 255));
+        app_Tittle3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout btn_LibroLayout = new javax.swing.GroupLayout(btn_Libro);
         btn_Libro.setLayout(btn_LibroLayout);
@@ -179,10 +181,15 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        app_Tittle4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Add_50px.png"))); // NOI18N
+        app_Tittle4.setText("Registro Bibliotecario");
         app_Tittle4.setBackground(new java.awt.Color(255, 255, 255));
         app_Tittle4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
-        app_Tittle4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Add_50px.png"))); // NOI18N
-        app_Tittle4.setText("Registro Usuarios");
+        app_Tittle4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                app_Tittle4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnRegistroBibliotecarioLayout = new javax.swing.GroupLayout(btnRegistroBibliotecario);
         btnRegistroBibliotecario.setLayout(btnRegistroBibliotecarioLayout);
@@ -191,7 +198,7 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             .addGroup(btnRegistroBibliotecarioLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(app_Tittle4)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btnRegistroBibliotecarioLayout.setVerticalGroup(
             btnRegistroBibliotecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,10 +215,10 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        app_Tittle5.setBackground(new java.awt.Color(255, 255, 255));
-        app_Tittle5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
         app_Tittle5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Scan_Stock_50px.png"))); // NOI18N
         app_Tittle5.setText("Inventario");
+        app_Tittle5.setBackground(new java.awt.Color(255, 255, 255));
+        app_Tittle5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
 
         javax.swing.GroupLayout btn_InventarioLayout = new javax.swing.GroupLayout(btn_Inventario);
         btn_Inventario.setLayout(btn_InventarioLayout);
@@ -263,9 +270,11 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
 
     private void btn_LibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LibroMouseClicked
 
-        JFLibros l = new JFLibros();
-        l.setVisible(true);
-        this.dispose();
+        try {
+            LibroController lconController = new LibroController();
+        } catch (SQLException ex) {
+            System.out.println(";c");
+        }
 
 
     }//GEN-LAST:event_btn_LibroMouseClicked
@@ -292,22 +301,30 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroBibliotecarioMouseClicked
 
     private void btn_InventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InventarioMouseClicked
-        
-        
+
         Inventario i = new Inventario();
         i.setVisible(true);
         this.dispose();
-        
-        
+
+
     }//GEN-LAST:event_btn_InventarioMouseClicked
 
     private void btn_BúsquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_BúsquedaMouseClicked
-       
+
         JFBusqueda b = new JFBusqueda();
         b.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btn_BúsquedaMouseClicked
+
+    private void app_Tittle4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_app_Tittle4MouseClicked
+
+        JFRegister jf = new JFRegister();
+        jf.setVisible(true);
+        this.dispose();
+
+
+    }//GEN-LAST:event_app_Tittle4MouseClicked
 
     /**
      * @param args the command line arguments
