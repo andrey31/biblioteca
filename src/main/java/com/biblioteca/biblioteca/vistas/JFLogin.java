@@ -19,6 +19,7 @@ public class JFLogin extends javax.swing.JFrame {
     public JFLogin() {
         initComponents();
         btnIniciar.setOpaque(true);
+        setTitle("Biblioteca Virtual :D");
         btnIniciar.setBackground(new Color(130, 204, 171));
         this.setLocationRelativeTo(null);
     }

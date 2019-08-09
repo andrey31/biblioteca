@@ -9,6 +9,7 @@ import com.biblioteca.biblioteca.modelos.entidades.Autor;
 import com.biblioteca.biblioteca.modelos.entidades.Editorial;
 import com.biblioteca.biblioteca.modelos.entidades.Libro;
 import com.biblioteca.biblioteca.modelos.entidades.Tematica;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,37 +20,11 @@ import java.util.List;
  *
  * @author cesar
  */
-public class BusquedaDAO {
+public class BusquedaDao {
     
     private Conexion conexion = new Conexion();
-    private AutorDAO autorDAO = new AutorDAO();
-    private EditorialDAO editorialDAO = new EditorialDAO();
-    private TematicaDAO tematicaDAO = new TematicaDAO();
     
-    public Integer saveLibro(Libro libro) throws SQLException {
-        
-        conexion.connect();
-        
-        Connection connection = conexion.getConnection();
-        
-        int fkAutor = libro.getAutor().getIdAutor();
-        int fkEditorial = libro.getEditorial().getIdEditorial();
-        int fkTematica = libro.getTematica().getIdTematica();
-        
-        if(fkAutor == 0){
-            fkAutor = autorDAO.saveAutor(libro.getAutor());
-        }
-        if(fkEditorial == 0){
-            fkEditorial = editorialDAO.saveEditorial(libro.getEditorial());
-        }
-        if(fkTematica == 0){
-            fkTematica = tematicaDAO.saveTematica(libro.getTematica());
-        }
-       
-     return null;   
-    }
-
-public List<Libro> getAllLibros() throws SQLException{
+    public List<Libro> getAllLibros() throws SQLException{
         
         conexion.connect();
         Connection connection = conexion.getConnection();
@@ -87,6 +62,33 @@ public List<Libro> getAllLibros() throws SQLException{
         conexion.closeConnection();
         return libros;
     }
-}
 
-    
+    public ArrayList<Libro>buscarporTitulo(String Titulo){
+     
+        ArrayList<Libro> listaTi = new ArrayList();
+        Libro libro;
+        try {
+            Connection connection = conexion.getConnection();
+            CallableStatement cs = connection.prepareCall("Buscar Libro(?)");
+            cs.setString(1, Titulo);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                libro = new Libro ();
+                libro.setTitulo(rs.getString(1));
+                libro.setISBN(rs.getString(2));
+                libro.setFecha(rs.getDate(3));
+                libro.setPrecio(rs.getDouble(4));
+                Autor autor = null;
+                libro.setAutor(autor);
+                Editorial editorial = null;
+                libro.setEditorial(editorial);
+                Tematica tematica = null;
+                libro.setTematica(tematica);
+                
+               listaTi.add(libro);
+            }
+        } catch (Exception e) {
+        }
+        return listaTi;
+    }
+}

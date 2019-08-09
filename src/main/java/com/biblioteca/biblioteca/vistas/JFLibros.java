@@ -392,7 +392,7 @@ public class JFLibros extends javax.swing.JFrame {
                 btnregresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 730, -1, -1));
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

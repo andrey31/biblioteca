@@ -251,5 +251,9 @@ public class LibroController {
         }
     }
 
+    public void setId_libro(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

@@ -88,21 +88,21 @@ public class JFRegister extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
         btnEliminar.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         btnEliminar.setOpaque(false);
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 560, -1, -1));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 550, -1, -1));
 
-        btnModificar.setBackground(new java.awt.Color(204, 204, 204));
-        btnModificar.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Edit_45px.png"))); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.setBackground(new java.awt.Color(204, 204, 204));
+        btnModificar.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         btnModificar.setOpaque(false);
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 560, -1, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 550, -1, -1));
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Checkmark_45px.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         btnGuardar.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         btnGuardar.setOpaque(false);
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 560, -1, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, -1, -1));
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Bibliotecario", "Estudiante" }));
         jPanel1.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 200, 30));
@@ -185,7 +185,7 @@ public class JFRegister extends javax.swing.JFrame {
             tblPersona.getColumnModel().getColumn(9).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 1030, 390));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 830, 390));
 
         lblNombre1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         lblNombre1.setText("Tipo de usuario:");
@@ -292,9 +292,9 @@ public class JFRegister extends javax.swing.JFrame {
                 btnregresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, -1, -1));
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 640));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
