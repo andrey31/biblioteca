@@ -280,14 +280,11 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DevolucionesMouseClicked
 
     private void btnRegistroBibliotecarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroBibliotecarioMouseClicked
-        JFRegister r = new JFRegister();
-        PersonaDAO personaDAO = new PersonaDAO();
         try {
-            RegisterController rc = new RegisterController(r, personaDAO);
+            RegisterController rc = new RegisterController();
         } catch (SQLException ex) {
             Logger.getLogger(JFMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        r.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistroBibliotecarioMouseClicked
 

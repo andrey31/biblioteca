@@ -27,9 +27,9 @@ public class RegisterController implements ActionListener, KeyListener {
     Persona persona = new Persona();
     PersonaDAO personaDAO = new PersonaDAO();
 
-    public RegisterController(JFRegister registerView, PersonaDAO personaDAO) throws SQLException {
-        this.registerView = registerView;
-        this.personaDAO = personaDAO;
+    public RegisterController() throws SQLException {
+        this.registerView.setVisible(true);
+        this.registerView.setLocationRelativeTo(null);
         this.registerView.btnGuardar.addActionListener(this);
         this.registerView.btnModificar.addActionListener(this);
         this.registerView.btnEliminar.addActionListener(this);

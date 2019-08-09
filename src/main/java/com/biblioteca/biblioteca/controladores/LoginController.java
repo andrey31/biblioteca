@@ -47,11 +47,6 @@ public class LoginController implements ActionListener {
             if (persona != null) {
                 JFMenuPrincipal menuView = new JFMenuPrincipal();
                 JFRegister registerView = new JFRegister();
-                try {
-                    RegisterController RController = new RegisterController(registerView,personaDAO);
-                } catch (SQLException ex) {
-                    System.out.println("Error---- "+ex);
-                }
                 menuView.setVisible(true);
                 menuView.setLocationRelativeTo(null);
                 /*registerView.setVisible(true);
