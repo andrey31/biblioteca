@@ -265,7 +265,6 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
 
     private void app_Tittle1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_app_Tittle1MouseClicked
 
-
     }//GEN-LAST:event_app_Tittle1MouseClicked
 
     private void btn_LibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LibroMouseClicked

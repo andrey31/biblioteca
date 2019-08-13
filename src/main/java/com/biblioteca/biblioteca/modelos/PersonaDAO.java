@@ -82,7 +82,6 @@ public class PersonaDAO {
                     rs.getString("contrasena"),
                     rs.getInt("id_tipo")
             );
-
             personas.add(persona);
         }
         con.closeConnection();
@@ -217,7 +216,7 @@ public class PersonaDAO {
         Connection accesoDB = con.getConnection();
 
         String query = "SELECT Personas.*, Usuarios.usuario,Usuarios.contrasena, Tipo_Usuario.id_tipo FROM Personas, Usuarios,"
-                + " Tipo_Usuario WHERE Personas.id LIKE '%"+buscar+"%'"; /* OR Personas.nombre LIKE '%"+buscar+"%' OR Personas.apellido1 LIKE '%"+buscar+"%'";
+                + " Tipo_Usuario WHERE Personas.id='%"+buscar+"%'"; /* OR Personas.nombre LIKE '%"+buscar+"%' OR Personas.apellido1 LIKE '%"+buscar+"%'";
                 + " OR Personas.apellido2 LIKE '%"+buscar+"%' OR Personas.fecha_nacimiento LIKE '%"+buscar+"%' OR Personas.telefono LIKE '%"+buscar+"%'"
                 + " OR Personas.direccion LIKE '%"+buscar+"%' OR Usuarios.usuario LIKE '%"+buscar+"%' OR Usuarios.contrasena LIKE '%"+buscar+"%' OR Tipo_Usuario.id_tipo LIKE '%"+buscar+"%'";*/
 

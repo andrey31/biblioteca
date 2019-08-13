@@ -22,19 +22,15 @@ public class LoginController implements ActionListener {
     Persona persona = new Persona();
     PersonaDAO personaDAO = new PersonaDAO();
 
-    public LoginController(JFLogin loginView, PersonaDAO personaDAO) {
-        this.loginView = loginView;
-        this.personaDAO = personaDAO;
+    public LoginController() {
+        this.loginView.setVisible(true);
+        this.loginView.setLocationRelativeTo(null);
         this.loginView.btnIniciar.addActionListener(this);
         this.loginView.btnMnimizar.addActionListener(this);
         this.loginView.btnMaximizar.addActionListener(this);
         this.loginView.btnSalir.addActionListener(this);
         this.loginView.lblErrorUsu.setText("");
         this.loginView.lblErrorContra.setText("");
-    }
-
-    public void inicializarLogin() {
-
     }
 
     @Override

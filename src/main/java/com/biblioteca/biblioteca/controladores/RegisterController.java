@@ -29,11 +29,10 @@ public class RegisterController implements ActionListener, KeyListener {
 
     public RegisterController() throws SQLException {
         this.registerView.setVisible(true);
-        this.registerView.setLocationRelativeTo(null);
         this.registerView.btnGuardar.addActionListener(this);
         this.registerView.btnModificar.addActionListener(this);
         this.registerView.btnEliminar.addActionListener(this);
-        this.registerView.txtId.addKeyListener(this);
+        //this.registerView.txtId.addKeyListener(this);
         cargarPersonas();
     }
 
@@ -184,11 +183,11 @@ public class RegisterController implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        try {
-            buscar();
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            buscar();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     @Override
@@ -196,48 +195,48 @@ public class RegisterController implements ActionListener, KeyListener {
         
     }
 
-    private void buscar() throws SQLException {
-        String buscar = registerView.txtId.getText();
-        String[] columns = new String[]{"Id", "Nombre", "Apellido1", "Apellido2", "Fecha_nacimiento", "Telefono", "Direccion", "Usuario", "Contraseña", "Tipo"};
-        DefaultTableModel modelTable = new DefaultTableModel();
-        modelTable.setColumnIdentifiers(columns);
-
-        for (Persona persona : personaDAO.buscar(buscar)) {
-
-            Object[] p = new Object[10];
-            p[0] = persona.getId();
-            p[1] = persona.getNombre();
-            registerView.txtNombre.setText(persona.getNombre());
-            p[2] = persona.getApellido1();
-            registerView.txtApellido1.setText(persona.getApellido1());
-            p[3] = persona.getApellido2();
-            registerView.txtApellido2.setText(persona.getApellido2());
-            p[4] = persona.getFechaNac();
-            registerView.dpFecha.setText(String.valueOf(persona.getFechaNac()));
-            p[5] = persona.getTelefono();
-            registerView.txtTelefono.setText(persona.getTelefono());
-            p[6] = persona.getDireccion();
-            registerView.txtDireccion.setText(persona.getDireccion());
-            p[7] = persona.getUsuario();
-            registerView.txtUsuario.setText(persona.getUsuario());
-            p[8] = persona.getContrase();
-            registerView.txtContraseña.setText(persona.getContrase());
-            switch (persona.getTipoUsu()) {
-                case 1:
-                    p[9] = "Admin";
-                    registerView.cmbTipo.setSelectedIndex(0);
-                    break;
-                case 2:
-                    p[9] = "Bibliotecario";
-                    registerView.cmbTipo.setSelectedIndex(1);
-                    break;
-                case 3:
-                    p[9] = "Estudiante";
-                    registerView.cmbTipo.setSelectedIndex(2);
-                    break;
-            }
-            modelTable.addRow(p);
-        }
-        this.registerView.tblPersona.setModel(modelTable);
-    }
+//    private void buscar() throws SQLException {
+//        String buscar = registerView.txtId.getText();
+//        String[] columns = new String[]{"Id", "Nombre", "Apellido1", "Apellido2", "Fecha_nacimiento", "Telefono", "Direccion", "Usuario", "Contraseña", "Tipo"};
+//        DefaultTableModel modelTable = new DefaultTableModel();
+//        modelTable.setColumnIdentifiers(columns);
+//
+//        for (Persona persona : personaDAO.buscar(buscar)) {
+//
+//            Object[] p = new Object[10];
+//            p[0] = persona.getId();
+//            p[1] = persona.getNombre();
+//            registerView.txtNombre.setText(persona.getNombre());
+//            p[2] = persona.getApellido1();
+//            registerView.txtApellido1.setText(persona.getApellido1());
+//            p[3] = persona.getApellido2();
+//            registerView.txtApellido2.setText(persona.getApellido2());
+//            p[4] = persona.getFechaNac();
+//            registerView.dpFecha.setText(String.valueOf(persona.getFechaNac()));
+//            p[5] = persona.getTelefono();
+//            registerView.txtTelefono.setText(persona.getTelefono());
+//            p[6] = persona.getDireccion();
+//            registerView.txtDireccion.setText(persona.getDireccion());
+//            p[7] = persona.getUsuario();
+//            registerView.txtUsuario.setText(persona.getUsuario());
+//            p[8] = persona.getContrase();
+//            registerView.txtContraseña.setText(persona.getContrase());
+//            switch (persona.getTipoUsu()) {
+//                case 1:
+//                    p[9] = "Admin";
+//                    registerView.cmbTipo.setSelectedIndex(0);
+//                    break;
+//                case 2:
+//                    p[9] = "Bibliotecario";
+//                    registerView.cmbTipo.setSelectedIndex(1);
+//                    break;
+//                case 3:
+//                    p[9] = "Estudiante";
+//                    registerView.cmbTipo.setSelectedIndex(2);
+//                    break;
+//            }
+//            modelTable.addRow(p);
+//        }
+//        this.registerView.tblPersona.setModel(modelTable);
+//    }
 }
