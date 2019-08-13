@@ -106,6 +106,38 @@ public class LibroDAO {
         return libros;
     }
 
-    
+    public Integer deleteLibro(int id) throws SQLException {
+        conexion.connect();
+        Connection connection = conexion.getConnection();
+        
+        String query = "DELETE FROM Libros WHERE Libros.id_libro = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, id);
+        
+        int delete = ps.executeUpdate();
+        
+        conexion.closeConnection();
+        return delete;
     }
+    public Integer updateLibro(int id, Libro libro) throws SQLException {
+        conexion.connect();
+        Connection connection = conexion.getConnection();
+        
+        String query = "UPDATE Libros SET titulo = ?, ISBN = ?, "
+                + "fecha = ?, precio = ?, fk_autor = ?, fk_editorial = ?, fk_tematica = ? WHERE id_libro = ?";
+        System.out.println(query);
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, libro.getTitulo());
+        ps.setString(2, libro.getISBN());
+        ps.setDate(3, libro.getFecha());
+        ps.setDouble(4, libro.getPrecio());
+        ps.setInt(5, libro.getAutor().getIdAutor());
+        ps.setInt(6, libro.getEditorial().getIdEditorial());
+        ps.setInt(7, libro.getTematica().getIdTematica());
+        ps.setInt(8, id);
+        int update = ps.executeUpdate();
+        conexion.closeConnection();
+        return update;
+    }
+ }
 

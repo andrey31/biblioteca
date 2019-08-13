@@ -19,7 +19,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -34,6 +35,9 @@ public class LibroController {
     
     private JFLibros jfLibros;
     
+    boolean editar = false;
+    int libroEdit = 0;
+            
     public LibroController() throws SQLException {
         this.libroDAO = new LibroDAO();
         this.jfLibros = new JFLibros();
@@ -62,13 +66,21 @@ public class LibroController {
                 }
             }
         });
+        this.jfLibros.tableLibros.setDefaultEditor(Object.class, null);
         this.jfLibros.rExistenteAutor.addActionListener( (ActionEvent ae) -> {this.enableCmbAutores();});
         this.jfLibros.rNuevoAutor.addActionListener( (ActionEvent ae) -> {this.enabletxtAutores();});
         this.jfLibros.rExistenteEditorial.addActionListener( (ActionEvent ae ) -> {this.enableCmbEditorial();});
         this.jfLibros.rNuevoEditorial.addActionListener( (ActionEvent ae ) -> {this.enabletxtEditorial();});
         this.jfLibros.rExistenteTematica.addActionListener( (ActionEvent ae) -> {this.enableCmbTematica();});
         this.jfLibros.rNuevoTematica.addActionListener( (ActionEvent ae) -> {this.enabletxtTematica();});
-
+        this.jfLibros.btnEditar.addActionListener( (ActionEvent ae) -> {this.editLibros();});
+        this.jfLibros.btnEliminar.addActionListener( (ActionEvent ae) -> {
+            try {
+                this.deleteLibros();
+            } catch (SQLException ex) {
+                System.out.println("error "+ ex);
+            }
+        });
     }
     
     public void cargarTematicas() throws SQLException {
@@ -100,25 +112,28 @@ public class LibroController {
     }
     
     public void cargarLibros() throws SQLException {
-        String [] columns = new String [] { "Titulo", "ISBN", "Fecha", "Precio", "Autor", "Editorial", "Tematica"};
+        String [] columns = new String [] { "Titulo", "ISBN", "Fecha", "Precio", "Autor", "Editorial", "Tematica", "id"};
         DefaultTableModel modelTable = new DefaultTableModel();
         modelTable.setColumnIdentifiers(columns);
         
         for( Libro libro : libroDAO.getAllLibros() ){
             
-            Object[] libroR = new Object[7];
+            Object[] libroR = new Object[8];
             libroR[0] = libro.getTitulo();
             libroR[1] = libro.getISBN();
             libroR[2] = libro.getFecha();
             libroR[3] = libro.getPrecio();
-            libroR[4] = libro.getAutor().getNombre() + " " +libro.getAutor().getApellido1();
-            libroR[5] = libro.getEditorial().getNombre();
-            libroR[6] = libro.getTematica().getNombre();
-            
+            libroR[4] = libro.getAutor();
+            libroR[5] = libro.getEditorial();
+            libroR[6] = libro.getTematica();
+            libroR[7] = libro.getIdLibro();
             modelTable.addRow(libroR);
         }
         this.jfLibros.tableLibros.setModel(modelTable);
-        
+        this.jfLibros.tableLibros.getColumn("id").setPreferredWidth(0);
+        this.jfLibros.tableLibros.getColumn("id").setMinWidth(0);
+        this.jfLibros.tableLibros.getColumn("id").setWidth(0);
+        this.jfLibros.tableLibros.getColumn("id").setMaxWidth(0);
     }
     
     private void agregarLibro() throws SQLException {
@@ -153,12 +168,20 @@ public class LibroController {
       
         Date fecha = Date.valueOf(this.jfLibros.inputFecha.getDate());
         
-        int libro = this.libroDAO.saveLibro( new Libro(
-                0, this.jfLibros.txtTitulo.getText(), this.jfLibros.txtISBN.getText(), fecha,
-                Double.parseDouble(this.jfLibros.txtPrecio.getText()), autor, editorial, tematica
-        ));
-        if(libro == 1) {
+        int libroInt = 0;
+        Libro libro = new Libro( 0, this.jfLibros.txtTitulo.getText(), this.jfLibros.txtISBN.getText(), fecha,
+                Double.parseDouble(this.jfLibros.txtPrecio.getText()), autor, editorial, tematica);
+        
+        if (this.editar == false){
+            libroInt = this.libroDAO.saveLibro(libro);
+        }
+        else {
+            libroInt = this.libroDAO.updateLibro(libroEdit, libro);
+        }
+        
+        if(libroInt == 1) {
             System.out.println("Libro agregado");
+            this.editar = false;
             this.cargarLibros();
             this.clearFields();
             this.cargarEditoriales();
@@ -253,6 +276,49 @@ public class LibroController {
 
     public void setId_libro(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void editLibros() {
+        int rowSelect = this.jfLibros.tableLibros.getSelectedRow();
+        
+        if (rowSelect > -1){
+            String titulo = (String) this.jfLibros.tableLibros.getModel().getValueAt(rowSelect, 0);
+            String isbn = (String) this.jfLibros.tableLibros.getModel().getValueAt(rowSelect, 1);
+            Date fecha = (Date) this.jfLibros.tableLibros.getModel().getValueAt(rowSelect, 2);
+            Double precio = (Double) this.jfLibros.tableLibros.getModel().getValueAt(rowSelect, 3);
+            this.jfLibros.txtTitulo.setText(titulo);
+            this.jfLibros.txtISBN.setText(isbn);
+            this.jfLibros.inputFecha.setDate(fecha.toLocalDate());
+            this.jfLibros.txtPrecio.setText(Double.toString(precio));
+//            this.jfLibros.cmbAutores.setSelectedItem((Autor) this.jfLibros.tableLibros.getModel().getValueAt(rowSelect, 4));
+            this.jfLibros.rExistenteAutor.setSelected(true);
+            this.enableCmbAutores();
+            this.jfLibros.rExistenteEditorial.setSelected(true);
+            this.enableCmbEditorial();
+            this.jfLibros.rExistenteTematica.setSelected(true);
+            this.enableCmbTematica();
+            this.libroEdit = (int) this.jfLibros.tableLibros.getModel().getValueAt(rowSelect, 7);
+            this.editar = true;
+        }
+       
+        
+    }
+
+    private void deleteLibros() throws SQLException {
+        int rowSelect = this.jfLibros.tableLibros.getSelectedRow();
+        
+        int idLibro = 0;
+        if(rowSelect > -1 ) {
+            idLibro = (int) this.jfLibros.tableLibros.getModel().getValueAt(rowSelect, 7);
+            libroDAO.deleteLibro(idLibro);
+            
+            this.cargarLibros();
+            this.clearFields();
+//            this.cargarEditoriales();
+//            this.cargarTematicas();
+//            this.cargarAutores();
+        }
+        
     }
 
     

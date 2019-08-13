@@ -112,6 +112,8 @@ public class JFLibros extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnregreso = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -394,6 +396,12 @@ public class JFLibros extends javax.swing.JFrame {
         });
         jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, -1));
 
+        btnEliminar.setText("Eliminar");
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 600, -1, -1));
+
+        btnEditar.setText("Editar");
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 550, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -455,6 +463,8 @@ public class JFLibros extends javax.swing.JFrame {
     private javax.swing.JLabel Autores;
     private javax.swing.JLabel app_Tittle;
     public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnEditar;
+    public javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnregreso;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JComboBox<String> cmbAutores;
