@@ -88,9 +88,14 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
 
         btn_RegistroBibliotecario.setBackground(new java.awt.Color(130, 204, 171));
         btn_RegistroBibliotecario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_RegistroBibliotecario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_RegistroBibliotecarioMouseClicked(evt);
+            }
+        });
 
         app_Tittle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Check_50px.png"))); // NOI18N
-        app_Tittle1.setText("En Proceso...");
+        app_Tittle1.setText("Préstamo");
         app_Tittle1.setBackground(new java.awt.Color(255, 255, 255));
         app_Tittle1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
         app_Tittle1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,9 +109,9 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
         btn_RegistroBibliotecarioLayout.setHorizontalGroup(
             btn_RegistroBibliotecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_RegistroBibliotecarioLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(93, 93, 93)
                 .addComponent(app_Tittle1)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         btn_RegistroBibliotecarioLayout.setVerticalGroup(
             btn_RegistroBibliotecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,9 +249,14 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(130, 204, 171));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 220, 30));
 
-        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Sign_Out_48px.png"))); // NOI18N
         jLabel1.setText("Cerrar Sesión");
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 200, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -321,6 +331,21 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_app_Tittle4MouseClicked
+
+    private void btn_RegistroBibliotecarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RegistroBibliotecarioMouseClicked
+        RegistroPrestamo rp = new RegistroPrestamo();
+        rp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_RegistroBibliotecarioMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+
+        JFLogin l = new JFLogin();
+        l.setVisible(true);
+        this.dispose();
+
+
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments

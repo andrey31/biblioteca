@@ -127,7 +127,12 @@ public class JFDevoluciones extends javax.swing.JFrame {
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Edit_45px.png"))); // NOI18N
         btnEditar.setText("Editar devolución");
         btnEditar.setFont(new java.awt.Font("Calibri Light", 0, 13)); // NOI18N
-        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 180, 50));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 180, 50));
 
         jPanel2.setBackground(new java.awt.Color(130, 204, 171));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,15 +144,16 @@ public class JFDevoluciones extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 60));
 
+        btnregreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Home_35px.png"))); // NOI18N
         btnregreso.setText("Regresar al menu principal");
         btnregreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 180, -1));
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 260, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,6 +171,10 @@ public class JFDevoluciones extends javax.swing.JFrame {
        m.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_btnregresoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     public static void main(String args[]) {
 

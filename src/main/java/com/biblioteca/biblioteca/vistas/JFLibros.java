@@ -116,6 +116,7 @@ public class JFLibros extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(130, 204, 171));
@@ -239,9 +240,8 @@ public class JFLibros extends javax.swing.JFrame {
         jPanel1.add(txtEditoial, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 160, 27));
 
         btnAgregar.setText("Agregar");
-        btnAgregar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
-        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, 290, 50));
+        btnAgregar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 480, 170, 30));
 
         txtAutorA2.setBorder(null);
         txtAutorA2.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
@@ -388,30 +388,24 @@ public class JFLibros extends javax.swing.JFrame {
 
         jPanel1.add(panelAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 310, -1, -1));
 
+        btnregreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Home_35px.png"))); // NOI18N
         btnregreso.setText("Regresar al menu principal");
         btnregreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, -1));
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 720, -1, 50));
 
         btnEliminar.setText("Eliminar");
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 600, -1, -1));
+        btnEliminar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, 170, 30));
 
         btnEditar.setText("Editar");
-        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 550, -1, -1));
+        btnEditar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 480, 170, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 831));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -5,18 +5,58 @@
  */
 package com.biblioteca.biblioteca.vistas;
 
+import com.biblioteca.biblioteca.modelos.Conexion;
+import com.mysql.cj.xdevapi.Result;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author kevin
  */
 public class Inventario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inventario
-     */
     public Inventario() {
         initComponents();
         setLocationRelativeTo(null);
+        try {
+
+            DefaultTableModel modelo = new DefaultTableModel();
+            tablaInventario.setModel(modelo);
+
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            Conexion conectar = new Conexion();
+            Connection con = conectar.getConnection();
+
+            String SQL = "SELECT id, cantidad, fk_libro FROM Inventarios";
+            ps = con.prepareStatement(SQL);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadColumnas = rsMd.getColumnCount();
+            modelo.addColumn("id");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Nombre");
+
+            while (rs.next()) {
+
+                Object[] filas = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+
+                    filas[i] = rs.getObject(i + 1);
+
+                }
+
+                modelo.addRow(filas);
+
+            }
+
+        } catch (SQLException e) {
+        }
     }
 
     /**
@@ -34,7 +74,7 @@ public class Inventario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Subtittle_2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaInventario = new javax.swing.JTable();
         btnregreso = new javax.swing.JButton();
 
         jFormattedTextField1.setText("jFormattedTextField1");
@@ -54,33 +94,49 @@ public class Inventario extends javax.swing.JFrame {
         Subtittle_2.setText("Inventario:");
         jPanel2.add(Subtittle_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 220, 60));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
                 "Id:", "Cantidad:", "Libros:"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, 885, 335));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaInventario);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 885, 300));
+
+        btnregreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Home_35px.png"))); // NOI18N
         btnregreso.setText("Regresar al menu principal");
         btnregreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+        jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 916, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,9 +147,9 @@ public class Inventario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnregresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresoActionPerformed
-      JFMenuPrincipal m = new JFMenuPrincipal();
-       m.setVisible(true);
-       this.dispose();
+        JFMenuPrincipal m = new JFMenuPrincipal();
+        m.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnregresoActionPerformed
 
     /**
@@ -139,6 +195,6 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaInventario;
     // End of variables declaration//GEN-END:variables
 }

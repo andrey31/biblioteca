@@ -28,61 +28,41 @@ public class RegistroPrestamo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtcodigolibro = new javax.swing.JTextField();
-        txtidusuario = new javax.swing.JTextField();
-        txtidestudiante = new javax.swing.JTextField();
-        txtidprestamo = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        btnguardar = new javax.swing.JButton();
-        txtfechaprestamo = new com.toedter.calendar.JDateChooser();
-        txtfechadevolucion = new com.toedter.calendar.JDateChooser();
-        btnmostrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTPrestamos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        btnregistrar = new javax.swing.JButton();
-        btnSeleccionar = new javax.swing.JButton();
+        txtfechadevolucion = new com.toedter.calendar.JDateChooser();
+        txtidusuario = new javax.swing.JTextField();
+        txtidestudiante = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtfechaprestamo = new com.toedter.calendar.JDateChooser();
+        txtcodigolibro = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtidprestamo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btnguardar = new javax.swing.JButton();
+        btnmostrar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
+        btnSeleccionar = new javax.swing.JButton();
+        btnregistrar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        app_Tittle = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("ID prestamo");
-
-        jLabel2.setText("Código Estudiante");
-
-        jLabel3.setText("Fecha Prestamo");
-
-        jLabel4.setText("Fecha devolucion");
-
-        jLabel5.setText("ISBN Libro");
-
-        jLabel6.setText("Código Usuario");
-
-        btnguardar.setText("Guardar");
-
-        txtfechaprestamo.setDateFormatString("yyyy-MM-dd  hh:mm:ss");
-
-        txtfechadevolucion.setDateFormatString("yyyy-MM-dd  hh:mm:ss");
-
-        btnmostrar.setText("Mostrar");
-        btnmostrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmostrarActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTPrestamos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "1", "2", "3", "4", "5", "6"
@@ -90,109 +70,122 @@ public class RegistroPrestamo extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTPrestamos);
 
-        jButton1.setText("jButton1");
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 410, 930, 126));
 
-        btnregistrar.setText("Registrar devolución");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Home_35px.png"))); // NOI18N
+        jButton1.setText("Regresar al menu principal");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 560, -1, 40));
 
-        btnSeleccionar.setText("Seleccionar Dato");
+        txtfechadevolucion.setDateFormatString("yyyy-MM-dd  hh:mm:ss");
+        jPanel1.add(txtfechadevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 169, 30));
+        jPanel1.add(txtidusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 167, 30));
+        jPanel1.add(txtidestudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 167, 30));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Identification_Documents_35px.png"))); // NOI18N
+        jLabel6.setText("Código Usuario");
+        jLabel6.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Identification_Documents_35px.png"))); // NOI18N
+        jLabel2.setText("Código Estudiante");
+        jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, 30));
+
+        txtfechaprestamo.setDateFormatString("yyyy-MM-dd  hh:mm:ss");
+        jPanel1.add(txtfechaprestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 169, 30));
+        jPanel1.add(txtcodigolibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 167, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Date_To_35px.png"))); // NOI18N
+        jLabel3.setText("Fecha Prestamo");
+        jLabel3.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 50));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Date_To_35px.png"))); // NOI18N
+        jLabel4.setText("Fecha devolucion");
+        jLabel4.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 40));
+        jPanel1.add(txtidprestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 170, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Identification_Documents_35px.png"))); // NOI18N
+        jLabel1.setText("ID prestamo");
+        jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Identification_Documents_35px.png"))); // NOI18N
+        jLabel5.setText("ISBN Libro");
+        jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
+
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Data_Recovery_25px.png"))); // NOI18N
+        btnguardar.setText("Guardar");
+        btnguardar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 220, 210, -1));
+
+        btnmostrar.setText("Mostrar");
+        btnmostrar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        btnmostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmostrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 136, -1));
+
+        btnactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Refresh_25px.png"))); // NOI18N
         btnactualizar.setText("Actualizar");
+        btnactualizar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 260, 150, -1));
 
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Delete_25px.png"))); // NOI18N
         btneliminar.setText("Eliminar");
+        btneliminar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 136, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(349, 349, 349)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(txtidprestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtfechaprestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtfechadevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addGap(71, 71, 71)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addComponent(btnguardar))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel6)
-                                                .addComponent(txtidusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btnactualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnmostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtcodigolibro, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtidestudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 159, Short.MAX_VALUE)))
-                .addContainerGap())
+        btnSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Select_25px.png"))); // NOI18N
+        btnSeleccionar.setText("Seleccionar ");
+        btnSeleccionar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 220, 150, -1));
+
+        btnregistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Check_25px.png"))); // NOI18N
+        btnregistrar.setText("Registrar devolución");
+        btnregistrar.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jPanel1.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 210, -1));
+
+        jPanel2.setBackground(new java.awt.Color(130, 204, 171));
+
+        app_Tittle.setText("Registro de préstamos:");
+        app_Tittle.setBackground(new java.awt.Color(255, 255, 255));
+        app_Tittle.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(app_Tittle, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(618, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtidprestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)))
-                    .addComponent(txtcodigolibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtidestudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfechaprestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(btnSeleccionar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtidusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btneliminar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnactualizar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(36, 36, 36))
-                        .addComponent(txtfechadevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnguardar)
-                    .addComponent(btnmostrar)
-                    .addComponent(btnregistrar))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
-                .addComponent(jButton1))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(app_Tittle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 60));
+
+        jLabel7.setFont(new java.awt.Font("Calibri Light", 0, 22)); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Squared_Menu_50px.png"))); // NOI18N
+        jLabel7.setText("Acciones");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 150, 70));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,6 +193,12 @@ public class RegistroPrestamo extends javax.swing.JFrame {
     private void btnmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmostrarActionPerformed
 
     }//GEN-LAST:event_btnmostrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFMenuPrincipal mp = new JFMenuPrincipal();
+        mp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,6 +237,7 @@ public class RegistroPrestamo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel app_Tittle;
     public javax.swing.JButton btnSeleccionar;
     public javax.swing.JButton btnactualizar;
     public javax.swing.JButton btneliminar;
@@ -251,6 +251,9 @@ public class RegistroPrestamo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTPrestamos;
     public javax.swing.JTextField txtcodigolibro;
