@@ -137,10 +137,10 @@ public class JFDevoluciones extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(130, 204, 171));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Subtittle_2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
         Subtittle_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Refresh_45px.png"))); // NOI18N
         Subtittle_2.setText("Devoluciones:");
-        jPanel2.add(Subtittle_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 60));
+        Subtittle_2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        jPanel2.add(Subtittle_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 290, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 60));
 

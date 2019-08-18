@@ -283,7 +283,7 @@ public class JFLibros extends javax.swing.JFrame {
 
         jSeparator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(130, 204, 171), 3));
         jSeparator3.setForeground(new java.awt.Color(130, 204, 171));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 350, 230));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 360, 220));
 
         jSeparator4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(130, 204, 171), 3));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 350, 140));
@@ -312,6 +312,8 @@ public class JFLibros extends javax.swing.JFrame {
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 360, 160, 10));
         jPanel1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 210, 10));
         jPanel1.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 210, 10));
+
+        panelAutor.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Name_Tag_35px.png"))); // NOI18N
 

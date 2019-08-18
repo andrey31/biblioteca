@@ -3,6 +3,7 @@ package com.biblioteca.biblioteca;
 import com.biblioteca.biblioteca.modelos.PersonaDAO;
 import com.biblioteca.biblioteca.vistas.JFLogin;
 import com.biblioteca.biblioteca.controladores.LoginController;
+import com.biblioteca.biblioteca.vistas.Inventario;
 import java.sql.SQLException;
 
 public class Main {
@@ -12,5 +13,6 @@ public class Main {
      */
     public static void main(String[] args) throws SQLException {
         LoginController lController = new LoginController();
+
     }
 }
