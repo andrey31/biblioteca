@@ -186,10 +186,10 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        app_Tittle4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Add_50px.png"))); // NOI18N
-        app_Tittle4.setText("Registro Bibliotecario");
         app_Tittle4.setBackground(new java.awt.Color(255, 255, 255));
         app_Tittle4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 22)); // NOI18N
+        app_Tittle4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Add_50px.png"))); // NOI18N
+        app_Tittle4.setText("Registro Bibliotecario");
         app_Tittle4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 app_Tittle4MouseClicked(evt);
@@ -201,9 +201,9 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
         btnRegistroBibliotecarioLayout.setHorizontalGroup(
             btnRegistroBibliotecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnRegistroBibliotecarioLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(28, 28, 28)
                 .addComponent(app_Tittle4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         btnRegistroBibliotecarioLayout.setVerticalGroup(
             btnRegistroBibliotecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,9 +249,9 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(130, 204, 171));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 220, 30));
 
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Sign_Out_48px.png"))); // NOI18N
         jLabel1.setText("Cerrar Sesión");
-        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -307,9 +307,9 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroBibliotecarioMouseClicked
 
     private void btn_InventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InventarioMouseClicked
-
-        Inventario i = new Inventario();
-        i.setVisible(true);
+        
+        JFBusqueda b = new JFBusqueda();
+        b.setVisible(true);
         this.dispose();
 
 
