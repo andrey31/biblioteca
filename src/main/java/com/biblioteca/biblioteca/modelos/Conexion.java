@@ -13,9 +13,9 @@ public class Conexion {
 
     private Connection connection = null;
     private String url = "";
-    private String server = "10.18.95.96";
-    private String user = "root";
-    private String pass = "311095linux";
+    private String server = "80.211.39.128:3310";
+    private String user = "m2";
+    private String pass = "metodologia2";
     private String dataBase = "biblioteca_db";
 
     public void connect() {
