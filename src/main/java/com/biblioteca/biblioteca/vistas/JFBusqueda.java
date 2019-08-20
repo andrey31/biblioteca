@@ -34,7 +34,6 @@ public class JFBusqueda extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table1 = new javax.swing.JTable();
         btnregreso = new javax.swing.JButton();
-        txtb = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         app_Tittle = new javax.swing.JLabel();
@@ -55,7 +54,7 @@ public class JFBusqueda extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 710, 129));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 710, 129));
 
         btnregreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Home_35px.png"))); // NOI18N
         btnregreso.setText("Regresar al menu principal");
@@ -65,9 +64,6 @@ public class JFBusqueda extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 453, -1, 40));
-
-        txtb.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jPanel1.add(txtb, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 180, -1));
 
         jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Search_35px_2.png"))); // NOI18N
@@ -155,7 +151,6 @@ public class JFBusqueda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable table1;
-    public javax.swing.JTextField txtb;
     // End of variables declaration//GEN-END:variables
 
    

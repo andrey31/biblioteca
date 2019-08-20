@@ -5,6 +5,7 @@
  */
 package com.biblioteca.biblioteca.vistas;
 
+import com.biblioteca.biblioteca.controladores.BusquedaControl;
 import com.biblioteca.biblioteca.controladores.LibroController;
 import com.biblioteca.biblioteca.controladores.RegisterController;
 import com.biblioteca.biblioteca.modelos.PersonaDAO;
@@ -308,8 +309,14 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
 
     private void btn_InventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InventarioMouseClicked
         
-        JFBusqueda b = new JFBusqueda();
+       JFBusqueda b = new JFBusqueda();
         b.setVisible(true);
+        try {
+            BusquedaControl co = new BusquedaControl(); 
+            co.cargarLibros();
+        } catch (SQLException ex) {
+        }
+        
         this.dispose();
 
 
@@ -319,6 +326,12 @@ public class JFMenuPrincipal extends javax.swing.JFrame {
 
         JFBusqueda b = new JFBusqueda();
         b.setVisible(true);
+        try {
+            BusquedaControl co = new BusquedaControl(); 
+            co.cargarLibros();
+        } catch (SQLException ex) {
+        }
+        
         this.dispose();
 
     }//GEN-LAST:event_btn_BúsquedaMouseClicked
